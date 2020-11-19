@@ -3,8 +3,8 @@
 - [Introdução](#introdução)
 - [Nomenclatura](#nomenclatura)
 - [Hello World](#hello-world)
-- [Após o Hello World - Actor e Virtual Actor](#após-o-hello-world-actor-e-virtual-actor)
-- [Chave primária de Grains](#chave-primaria-de-grains)
+- [Após o Hello World - Actor e Virtual Actor](#após-o-hello-world---actor-e-virtual-actor)
+- [Unicidade de Grains com base na chave primária](#unicidade-de-grains-com-base-na-chave-primária)
 
 # Introdução
 
@@ -55,7 +55,7 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://
 
 O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o Client ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
-# Chave primária de Grains
+# Unicidade de Grains com base na chave primária
 
 todo...
 
