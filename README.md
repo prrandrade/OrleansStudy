@@ -1,20 +1,22 @@
 # Microsoft Orleans na prática
 
 - [Introdução](#introdução)
-- [Nonemclatura](#nomenclatura)
+- [Nomenclatura](#nomenclatura)
 - [Hello World](#hello-world)
+- [Após o Hello World - Actor e Virtual Actor](#após-o-hello-world-actor-e-virtual-actor)
+- [Chave primária de Grains](#chave-primaria-de-grains)
 
 # Introdução
 
 Direto ao ponto, o [Microsoft Orleans](https://github.com/dotnet/orleans) é um projeto que permite criar e executar sistemas distribuídos de forma simples, abstraindo os conceitos de distribuição de tarefas, quem executa o que, e como um processamento é retomado caso a máquina que esteja o fazendo saia do ar. Mas primeiro, vamos entender a nomenclatura básica do que significa cada coisa do Orleans (spoiler: pense basicamente numa arquitetura cliente-servidor, mas turbinada).
 
-# Nomemclatura
+# Nomenclatura
 
 ### Grains
 
 A unidade básica de processamento do Orleans é o **Grain**, basicamente uma classe com regras de negócio. A diferença é que o cliente chama esta classe, mas a execução da mesma é feita no servidor (ou servidores, já que estamos falando de sistemas distribuídos). O cliente não sabe a lógica por trás de um **Grain** - aliás, nem os **Grains** devem saber a lógica uns dos outros.
 
-Isso significa que além do projeto com as classes qhe herdam de **Grain**, você precisará ter um projeto de interfaces, que será usado pelos clientes e pelos servidores. Na hora de referenciar um **Grain**, nós usamos as interfaces, e não as implementações.
+Isso significa que além do projeto com as classes que herdam de **Grain**, você precisará ter um projeto de interfaces, que será usado pelos clientes e pelos servidores. Na hora de referenciar um **Grain**, nós usamos as interfaces, e não as implementações.
 
 Vale destacar que, **todos** os métodos de um **Grain** devem sempre retornar uma `Task`, uma `Task<T>` ou uma `ValueTask<T>`. O **Grain** é pensado para ser executado num contexto multithread.
 
@@ -34,4 +36,26 @@ Parece meio obvio, mas vale a pena destacar. Os clientes que acessam os **Silos*
 
 # Hello World
 
-Obviamente vamos começar... ora, do começo! Dentro da pasta study/01-HelloWorld temos um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
+Obviamente vamos começar... ora, do começo! [Dentro da pasta study/01-HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) temos um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
+
+# Após o Hello World - Actor e Virtual Actor
+
+OK, se você passou pelo Hello World, já viu como um **Client** se conecta ao **Silo** para executar o código de um **Grain**. Mas deve ter achado estranho o fato de que precisamos de uma chave primária para utilizar um **Grain**. Isso é necessário porque o Microsoft Orleans apresenta o conceito de Virtual Actor. E para entender o conceito de Virtual Actor, vamos entender o conceito de Actor.
+
+### Actor
+
+A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://en.wikipedia.org/wiki/Actor_model#Fundamental_concepts) mas explicando de forma bem simplificada, um actor é a menor unidade de programação na computação distribuída. Ao receber mensagens, um actor pode enviar mensagens para outros actors, criar novos actors e definir o comportamento que será usado ao receber outras mensagens. Só que ao usar actors, vários problemas inerentes da computação distribuída surgem:
+
+- Precisamos garantir que as mensagens sejam processadas APENAS uma vez, mesmo que o sistema esteja espalhado em várias máquinas.
+- Precisamos garantir que as mensagens sejam processadas mesmo a máquina que o está processando não esteja mais disponível.
+- Precisamos garantir que as informações processadas num actor estejam disponíveis em todos os nós no sistema distribuído.
+- Precisamos garantir que, se uma máquina de um sistema distribuído não estiver disponível, todo o sistema continue de pé, de preferência sem intervenção manual.
+
+### Virtual Actor
+
+O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o Client ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
+
+# Chave primária de Grains
+
+todo...
+
