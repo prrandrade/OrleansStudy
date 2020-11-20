@@ -194,7 +194,6 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 - No **Client**: **Client said: 'Good morning, HelloGrain!', so HelloGrain says: Hello!** , é o string devolvido pelo método do **Grain**, recebido pelo Client.
 
 
-
 # Sumário
 
 De forma resumida:

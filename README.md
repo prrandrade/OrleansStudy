@@ -2,9 +2,10 @@
 
 - [Introdução](#introdução)
 - [Nomenclatura](#nomenclatura)
-- [Hello World](#hello-world)
-- [Após o Hello World - Actor e Virtual Actor](#após-o-hello-world---actor-e-virtual-actor)
-- [Unicidade de Grains com base na chave primária](#unicidade-de-grains-com-base-na-chave-primária)
+- [Projeto HelloWorld](#projeto-helloworld)
+- [Após o projeto HelloWorld](#após-o-projeto-helloworld)
+- [Projeto PrimaryKeys](#projeto-primary-keys)
+- [Após o projeto PrimaryKeys](#após-o-projeto-primarykeys)
 
 # Introdução
 
@@ -34,11 +35,11 @@ A graça de um **Cluster** com vários **Silos** é que estes se comunicam entre
 
 Parece meio obvio, mas vale a pena destacar. Os clientes que acessam os **Silos** para o processamento dos **Grains** são chamados de **Silo Clients**, ou apenas **Clients**. Insisto: os **Clients** não executam o código dos **Grains**, são os **Silos** que fazem o trabalho sujo.
 
-# Hello World
+# Projeto HelloWorld
 
 Obviamente vamos começar... ora, do começo! [Dentro da pasta study/01-HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) temos um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
 
-# Após o Hello World - Actor e Virtual Actor
+# Após o Projeto HelloWorld
 
 OK, se você passou pelo Hello World, já viu como um **Client** se conecta ao **Silo** para executar o código de um **Grain**. Mas deve ter achado estranho o fato de que precisamos de uma chave primária para utilizar um **Grain**. Isso é necessário porque o Microsoft Orleans apresenta o conceito de Virtual Actor. E para entender o conceito de Virtual Actor, vamos entender o conceito de Actor.
 
@@ -55,7 +56,8 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://
 
 O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o Client ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
-# Unicidade de Grains com base na chave primária
+# Projeto PrimaryKeys
 
-todo...
+Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos so [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a executação dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
+# Após o projeto PrimaryKeys
