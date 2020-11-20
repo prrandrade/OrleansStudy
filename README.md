@@ -58,6 +58,8 @@ O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Act
 
 # Projeto PrimaryKeys
 
-Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos so [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a executação dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
+Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a executação dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
 # Após o projeto PrimaryKeys
+
+Já sabemos que não nios precisamos nos preocupar com a concorrência de **Grains**, se eles forem ativados com a mesma chave primária - o que é otimo para serializar operações do mesmo usuário, por exemplo. Mas como usar a chave primária durante a lógica de negócio? Fácil, resgatando os valores durante os métodos.
