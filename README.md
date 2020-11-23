@@ -6,6 +6,7 @@
 - [Após o projeto HelloWorld](#após-o-projeto-helloworld)
 - [Projeto PrimaryKeys](#projeto-primarykeys)
 - [Após o projeto PrimaryKeys](#após-o-projeto-primarykeys)
+- [Projeto RetrievingPrimaryKeys](#projeto-retrievingprimarykeys)
 
 # Introdução
 
@@ -54,12 +55,16 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://
 
 ### Virtual Actor
 
-O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o Client ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
+O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
 # Projeto PrimaryKeys
 
-Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a executação dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
+Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
 # Após o projeto PrimaryKeys
 
-Já sabemos que não nios precisamos nos preocupar com a concorrência de **Grains**, se eles forem ativados com a mesma chave primária - o que é otimo para serializar operações do mesmo usuário, por exemplo. Mas como usar a chave primária durante a lógica de negócio? Fácil, resgatando os valores durante os métodos.
+Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**, se eles forem ativados com a mesma chave primária - o que é ótimo para serializar operações do mesmo usuário, por exemplo. Além disso, nada impede que a chave primária também seja a chave primária de uma base de dados- representando um usuário ou uma operação. Mas como usar a chave primária durante a lógica de negócio? Fácil, resgatando os valores dentro do **Grain**.
+
+# Projeto RetrievingPrimaryKeys
+
+Dentro da pasta [study/03-RetrievingPrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/03-RetrievingPrimaryKeys), vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld)).
