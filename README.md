@@ -1,14 +1,21 @@
 # Microsoft Orleans na prática
 
-- [Introdução](#introdução)
+## Parte 1 - Entendimento básico do Orleans
+
+- [Introdução da parte 1](#introdução-da-parte-1)
 - [Nomenclatura](#nomenclatura)
 - [Projeto HelloWorld](#projeto-helloworld)
 - [Após o projeto HelloWorld](#após-o-projeto-helloworld)
 - [Projeto PrimaryKeys](#projeto-primarykeys)
 - [Após o projeto PrimaryKeys](#após-o-projeto-primarykeys)
 - [Projeto RetrievingPrimaryKeys](#projeto-retrievingprimarykeys)
+- [Após o projeto RetrievingPrimaryKeys](#após-o-projeto-retrievingprimarykeys)
+- [Projeto GrainActivation](#projeto-grainactivation)
+- [Após o projeto GrainActivation](#após-o-projeto-grainactivation)
+- [Conclusão da parte 1](#conclusão-da-parte-1)
 
-# Introdução
+
+# Introdução da Parte 1
 
 Direto ao ponto, o [Microsoft Orleans](https://github.com/dotnet/orleans) é um projeto que permite criar e executar sistemas distribuídos de forma simples, abstraindo os conceitos de distribuição de tarefas, quem executa o que, e como um processamento é retomado caso a máquina que esteja o fazendo saia do ar. Mas primeiro, vamos entender a nomenclatura básica do que significa cada coisa do Orleans (spoiler: pense basicamente numa arquitetura cliente-servidor, mas turbinada).
 
@@ -67,4 +74,22 @@ Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**,
 
 # Projeto RetrievingPrimaryKeys
 
-Dentro da pasta [study/03-RetrievingPrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/03-RetrievingPrimaryKeys), vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld)).
+[Dentro da pasta study/03-RetrievingPrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/03-RetrievingPrimaryKeys), vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld)).
+
+# Após o projeto RetrievingPrimaryKeys
+
+Isso já foi falado algumas vezes, mas vale a pela relembrar: a lógica dos **Grains** é executada no servidor - nos **Silos**, e não no **Client**. Isso significa que, de alguam forma, os **Grains** precisam começar a existir do lado do servidor para que seus métodos sejam chamados pelo **Client**. Este processo dentro do Orleans é chamado de ativação, e pode acontecer quando o Grain é carregado juntamente com sua chave primária.
+
+E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligência para manter **Grains** carregados e evitar processamento de ativações e desativações que não fazem sentido. 
+
+# Projeto GrainActivation
+
+[Dentro da pasta study/04-GrainActivation](https://github.com/prrandrade/OrleansStudy/tree/master/study/04-GrainActivation), vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
+
+# Após o projeto GrainActivation
+
+Conseguimos sem muito mistério adicionar lógica de negócio nos métodos básicos do ciclo de vida de um **Grain** - o que já cobre vários cenários diferentes.
+
+# Conclusão da parte 1
+
+Com isso, já conhecemos o básico do Orleans, conseguimos executar um **Silo**, criar **Grains** com chaves primárias e executá-los através de **Clients**.
