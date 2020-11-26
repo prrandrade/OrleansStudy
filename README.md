@@ -14,6 +14,12 @@
 - [Após o projeto GrainActivation](#após-o-projeto-grainactivation)
 - [Conclusão da parte 1](#conclusão-da-parte-1)
 
+## Parte 2 - Computação distribuída com o Orleans
+
+- [Introdução da parte 2](#introdução-da-parte-2)
+
+
+# Parte 1 - Entendimento básico do Orleans
 
 # Introdução da Parte 1
 
@@ -92,4 +98,22 @@ Conseguimos sem muito mistério adicionar lógica de negócio nos métodos bási
 
 # Conclusão da parte 1
 
-Com isso, já conhecemos o básico do Orleans, conseguimos executar um **Silo**, criar **Grains** com chaves primárias e executá-los através de **Clients**.
+Após passar por todos os exemplos, conseguimos cobrir os aspectos mais básicos do Orleans:
+
+- Sabemos como é a lógica básica do Orleans, onde **Clients** se conectam num **Cluster**, formado por um conjunto de **Silos**. Estes **Silos** executam o código do **Grain** e devolvem os resultados dos métodos para os **Clients**. Ou seja, a lógica de negócio **é executada do lado do servidor**!
+
+- **Grains** são identificados através de chaves primárias, que podem ser usadas na lógica de negócio. Estas chaves primárias, como o nome já indica, individualizam e serializam a execução do código.
+
+- A ativação e desativação dos **Grains** são os passos mais fundamentais no ciclo de vida, e lógica de negócio customizada pode ser inserida nestes passos - inclusive a desativação do **Grain** pode ser chamada via método próprio.
+
+- Se já houver uma referência de um **Grain**, não precisamos em precisar ativá-lo com a chave primária novamente. Uma chamada de qualquer método do **Grain** já o ativa (e executa a lógica de negócio possivelmente atrelada).
+
+Com isso, já conseguimos montar uma estrutura local com o Orleans, embora ele ainda não se justifique como tecnologia apenas com estes elementos - não estamos fazendo nada muito diferente de uma API, sinceramente. É a partir de agora que vamos ver onde e como o Orleans realmente se destaca.
+
+# Parte 2 - Computação distribuída com o Orleans
+
+# Introdução da parte 2
+
+Como explicado anteriormente, o que fizemos até aqui foi conhecer os aspectos mais básicos do Orleans, mas usar apenas estes aspectos não traz vantagens de fato a um ambiente de produção - veja, se estamos apenas fazendo chamadas cliente-servidor, por mais que o uso do Orleans disfarce isso de forma que parece que estamos chamando métodos locais, o funcinamento não se torma muito diferente de uma API.
+
+Mas o Orleans não foi feito para substituir uma API, o Orleans foi feito para ser usado em computação distribuída. E agora vamos aprender como podemos distribuir o processamento dos **Grains** de forma que as requisições feitas pelos **Clients** serão distrubuídas entre **Silos**.
