@@ -1,8 +1,9 @@
-# Parte 2 - Computação distribuída com o Orleans
+# Parte 2 - Computação distribuída e persistência com o Orleans
 
 - [Introdução](#introdução)
 - [Persistência e rede para organizar os Silos](#persistência-e-rede-para-organizar-os-silos)
 - [Entendendo a persistência do Orleans](#entendendo-a-persistência-do-orleans)
+- [Configurando a persistência no Orleans](#configurando-a-persistência-no-orleans)
 
 # Introdução
 
@@ -21,3 +22,15 @@ Resumo da história: todas as máquinas que hospedam **Silos** precisam ter aces
 # Entendendo a persistência do Orleans
 
 Antes de tudo, vale destacar que os **Silos** do Orleans utilizam a persistência para três tipos de operações.
+
+- **Clustering**: A persistência é utilizada para que os **Silos** do **Cluster** se comuniquem entre si; é a persistência que falamos até aqui.
+
+- **Persistence**: Quando os **Grains** percisam armazenar/carregar objetos, um sistema próprio de persistência pode (e em algumas situações, deve) ser utilizado.
+
+- **Remimders**: **Grains** podem ter tarefas agendadas que serão executadaas mesmo quando eles não estiverem ativados. As informações destas tarefas agendadas precisa ser persistida em algum lugar para que a funcionalidade seja executada de forma correta.
+
+Não precisamos configurar os três aspectos de persistência simultaneamente, eles trabalham de forma independente.
+
+# Configurando a persistência no Orleans
+
+
