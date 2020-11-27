@@ -14,7 +14,7 @@
 
 # Introdução
 
-Direto ao ponto, o [Microsoft Orleans](https://github.com/dotnet/orleans) é um projeto que permite criar e executar sistemas distribuídos de forma simples, abstraindo os conceitos de distribuição de tarefas, quem executa o que, e como um processamento é retomado caso a máquina que esteja o fazendo saia do ar. Mas primeiro, vamos entender a nomenclatura básica do que significa cada coisa do Orleans (spoiler: pense basicamente numa arquitetura cliente-servidor, mas turbinada).
+Direto ao ponto, o [Microsoft Orleans][orleans] é um projeto que permite criar e executar sistemas distribuídos de forma simples, abstraindo os conceitos de distribuição de tarefas, quem executa o que, e como um processamento é retomado caso a máquina que esteja o fazendo saia do ar. Mas primeiro, vamos entender a nomenclatura básica do que significa cada coisa do Orleans (spoiler: pense basicamente numa arquitetura cliente-servidor, mas turbinada).
 
 # Nomenclatura
 
@@ -42,7 +42,7 @@ Parece meio obvio, mas vale a pena destacar. Os clientes que acessam os **Silos*
 
 # Projeto HelloWorld
 
-Obviamente vamos começar... ora, do começo! [Dentro da pasta study/01-HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) temos um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
+Obviamente vamos começar... ora, do começo! O [projeto HelloWorld][01] mostra um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
 
 # Após o Projeto HelloWorld
 
@@ -50,7 +50,7 @@ OK, se você passou pelo Hello World, já viu como um **Client** se conecta ao *
 
 ### Actor
 
-A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://en.wikipedia.org/wiki/Actor_model#Fundamental_concepts) mas explicando de forma bem simplificada, um actor é a menor unidade de programação na computação distribuída. Ao receber mensagens, um actor pode enviar mensagens para outros actors, criar novos actors e definir o comportamento que será usado ao receber outras mensagens. Só que ao usar actors, vários problemas inerentes da computação distribuída surgem:
+A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor][actor_concept] mas explicando de forma bem simplificada, um actor é a menor unidade de programação na computação distribuída. Ao receber mensagens, um actor pode enviar mensagens para outros actors, criar novos actors e definir o comportamento que será usado ao receber outras mensagens. Só que ao usar actors, vários problemas inerentes da computação distribuída surgem:
 
 - Precisamos garantir que as mensagens sejam processadas APENAS uma vez, mesmo que o sistema esteja espalhado em várias máquinas.
 - Precisamos garantir que as mensagens sejam processadas mesmo a máquina que o está processando não esteja mais disponível.
@@ -59,11 +59,11 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor](https://
 
 ### Virtual Actor
 
-O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld) ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
+O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld][01] ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
 # Projeto PrimaryKeys
 
-Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [Dentro da pasta study/02-PrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/02-PrimaryKeys), a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
+Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [O projeto PrimaryKeys][02] demonstra que, a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
 # Após o projeto PrimaryKeys
 
@@ -71,7 +71,7 @@ Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**,
 
 # Projeto RetrievingPrimaryKeys
 
-[Dentro da pasta study/03-RetrievingPrimaryKeys](https://github.com/prrandrade/OrleansStudy/tree/master/study/03-RetrievingPrimaryKeys), vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld)).
+[No projeto RetrievingPrimaryKeys][03], vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld][01]).
 
 # Após o projeto RetrievingPrimaryKeys
 
@@ -81,7 +81,7 @@ E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligê
 
 # Projeto GrainActivation
 
-[Dentro da pasta study/04-GrainActivation](https://github.com/prrandrade/OrleansStudy/tree/master/study/04-GrainActivation), vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
+[Através do projeto GrainActivation](https://github.com/prrandrade/OrleansStudy/tree/master/study/04-GrainActivation), vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
 
 # Após o projeto GrainActivation
 
@@ -100,3 +100,10 @@ Após passar por todos os exemplos, conseguimos cobrir os aspectos mais básicos
 - Se já houver uma referência de um **Grain**, não precisamos em precisar ativá-lo com a chave primária novamente. Uma chamada de qualquer método do **Grain** já o ativa (e executa a lógica de negócio possivelmente atrelada).
 
 Com isso, já conseguimos montar uma estrutura local com o Orleans, embora ele ainda não se justifique como tecnologia apenas com estes elementos - não estamos fazendo nada muito diferente de uma API, sinceramente. É a partir de agora que vamos ver onde e como o Orleans realmente se destaca.
+
+[actor_concept]: https://en.wikipedia.org/wiki/Actor_model#Fundamental_concepts
+[orleans]: https://github.com/dotnet/orleans
+[01]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
+[02]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
+[03]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/03-RetrievingPrimaryKeys
+[04]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/04-GrainActivation
