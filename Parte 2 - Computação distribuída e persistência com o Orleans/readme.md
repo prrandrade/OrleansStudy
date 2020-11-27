@@ -1,9 +1,10 @@
-# Parte 2 - Computação distribuída e persistência com o Orleans
+# Parte 2 - Computação distribuída e persistência ADO.NET com o Orleans
 
 - [Introdução](#introdução)
 - [Persistência e rede para organizar os Silos](#persistência-e-rede-para-organizar-os-silos)
 - [Entendendo a persistência do Orleans](#entendendo-a-persistência-do-orleans)
-- [Configurando a persistência no Orleans](#configurando-a-persistência-no-orleans)
+- [Scripts de preparação de persistência no Orleans](#scripts-de-preparação-de-persistência-no-orleans)
+- [Projeto BasicPersitence]
 
 # Introdução
 
@@ -17,7 +18,7 @@ Já sabemos que a o que realmente precisa ser executado de forma distribuída s�
 
 O Orleans resolve isso de forma estupidamente simples: persistência de dados. Precisamos de uma base de dados unificada a qual todos os **Silos** terão acesso para armazenar informações sobre eles. Ao mesmo tempo, os **Silos** utilizam duas portas de rede para o tráfego de informações: uma porta onde eles conversam entre si e OUTRA porta onde os **Clients** se conectam para ativar e utilizar os **Grains**.
 
-Resumo da história: todas as máquinas que hospedam **Silos** precisam ter acesso a uma **mesma base de dados** e também acesso de **rede entre elas** - pelo menos em uma porta específica. Isso merece ser destacado principalmente em ambientes corporativos, onde é muito fácil esquecer de pedir acesso de uma máquina a poutra por uma porta específica.
+Resumo da história: todas as máquinas que hospedam **Silos** precisam ter acesso a uma **mesma base de dados** e também acesso de **rede entre elas** - pelo menos em uma porta específica. Isso merece ser destacado principalmente em ambientes corporativos, onde é muito fácil esquecer de pedir acesso de uma máquina a poutra por uma porta específica. Vale destacar também que esta persistência **não tem relação com nenhuma lógica de negócio**, estagmos falando do **funcionamento interno do Orleans**.
 
 # Entendendo a persistência do Orleans
 
@@ -29,8 +30,42 @@ Antes de tudo, vale destacar que os **Silos** do Orleans utilizam a persistênci
 
 - **Remimders**: **Grains** podem ter tarefas agendadas que serão executadaas mesmo quando eles não estiverem ativados. As informações destas tarefas agendadas precisa ser persistida em algum lugar para que a funcionalidade seja executada de forma correta.
 
-Não precisamos configurar os três aspectos de persistência simultaneamente, eles trabalham de forma independente.
+Não precisamos configurar os três aspectos de persistência simultaneamente, eles trabalham de forma independente - nem precisamos usar o mesmo banco de dados para cada um dos aspectos!
 
-# Configurando a persistência no Orleans
+# Scripts de preparação de persistência ADO.NET no Orleans
+
+[Na documentação oficial do Microsoft Orleans](https://dotnet.github.io/orleans/docs/host/configuration_guide/adonet_configuration.html), encontramos os quatro tipos de banco de dados que podem ser usados para a persistência interna do Orleans via ADO.NET, juntamente com os scripts que devem ser adicionados ao projeto do **Silo**:
+
+- **SQL Server**, que exige a instalação do pacote nuget **System.Data.SqlClient** e é internamente identificado como **System.Data.SqlClient**.
+
+- **MySQL** ou **MariaDB**, que exige a instalação do pacote nuget **MySql.Data** e é internamente identificado como **MySql.Data.MySqlClient**.
+
+- **PostgreSQL**, que exige a instalação do pacote nuget **Npgsql** e é identificado internamente como **Npgsql**.
+
+- **Oracle**, que exige a instalação do pacote nuget **ODP.net** e é identificado internamente como **	Oracle.DataAccess.Client**.
+
+No mesmo link, você consegue obter os scripts (de cada banco de dados) que devem ser executados anteriormente nas bases de dados que serão acessadas pelos **Silos** para o uso de persistência. Estes estão divididos em quatro categorias:
+
+- **Main**: são os scripts obrigatórias que devem estar presentes em todos os casos.
+
+- **Clustering**: são os scripts que devem ser executados quando queremos executar múltiplos **Silos** no mesmo **Cluster** (computação distribuída, afinal de contas).
+
+- **Persistence**: são os scripts que devem ser executados quando queremos usar o mecanismo de persistência de objetos dentro dos **Grains**.
+
+- **Reminders**: São os scripts que devem ser executados quando precisamos usar o mecanismo de tarefas agendadas dos **Grains**.
+
+Por exemplo, se o banco de dados de persistência do Orleans for o SQL Server e o mecanismo de Clustering for usado, precisamos baixar os scripts **SQLServer-Main.sql** e **SQLServer-Clustering.sql**. Já se o banco de dados for o Oracle e os mecanismos de tarefas agendadas e persistência de objetos forem usados, precisamos baixar os scripts **Oracle-Main.sql**, **Oracle-Reminders.sql** e **Oracle-Persistence.sql**.
+
+E se usarmos mais de um banco de dados para tarefas diferentes, os scripts **Main** de ambas as bases de dados precisam ser executados, não se esqueça disso!
+
+# Projeto BasicPersitence
+
+Este projeto tem a mesma estrutura básica do HelloWorld
+
+Microsoft.Orleans.Clustering.AdoNet
+Microsoft.Orleans.Persistence.AdoNet
+Microsoft.Orleans.Reminders.AdoNet
+
+
 
 
