@@ -74,7 +74,9 @@ Task.WaitAll(t1, t2);
 De forma resumida:
 
 - Não importa de onde os **Grains** são ativados, se a chave primária é a mesma, para fins práticos, o **Grain** é o mesmo.
+
 - Métodos do mesmo **Grain** (mesma chave primária) são por definição seriais, precisamos esperar o retorno de um método para conseguir executar outros métodos.
+
 - Métodos de **Grains** com chaves primárias diferentes podem obviamente ser chamados de forma paralela.
 
 

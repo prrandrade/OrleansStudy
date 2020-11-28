@@ -10,6 +10,7 @@
 - [Após o projeto RetrievingPrimaryKeys](#após-o-projeto-retrievingprimarykeys)
 - [Projeto GrainActivation](#projeto-grainactivation)
 - [Após o projeto GrainActivation](#após-o-projeto-grainactivation)
+- [Sumário dos projetos](#sumário-dos-projetos)
 - [Conclusão](#conclusão)
 
 # Introdução
@@ -86,6 +87,35 @@ E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligê
 # Após o projeto GrainActivation
 
 Conseguimos sem muito mistério adicionar lógica de negócio nos métodos básicos do ciclo de vida de um **Grain** - o que já cobre vários cenários diferentes.
+
+# Sumário dos projetos
+
+- Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
+
+- Métodos dos **Grains** declarados nas intercaces devem sempre devolver uma `Task` ou uma `ValueTask`.
+
+- Implementações dos **Grains**  devem, além de implementar as interfaces, herdar da classe **Grain**
+- **Silos** conhecem as interfaces e as implementações dos **Grains**, pois os **Grains** são executados nos **Silos**.
+
+- **Clients** só conhecem as interfaces dos **Grains**, estes se conectam nos **Silos** e recebem o retorno dos métodos.
+
+- Precisamos de uma chave primária para ativar um **Grain** no **Client**.
+
+- Não importa de onde os **Grains** são ativados, se a chave primária é a mesma, para fins práticos, o **Grain** é o mesmo.
+
+- Métodos do mesmo **Grain** (mesma chave primária) são por definição seriais, precisamos esperar o retorno de um método para conseguir executar outros métodos.
+
+- Métodos de **Grains** com chaves primárias diferentes podem obviamente ser chamados de forma paralela.
+
+- Chaves primárias podem (e devem) ser usadas para individualizar a regra de negócio, elas não precisam ser usadas apenas para a ativação dos **Grains**.
+
+- Existem cinco tipos diferentes de chaves primárias no Orleans para individualizar **Grains**.
+
+- No caso de chaves compostas, não é possível nem ativar **Grains** sem ambos os componentes da chave e nem recuperar apenas um componente da chave primária (o que conseguimos fazer é ignorar o segundo componente de uma chave composta graças ao C# 7.0).
+
+- Podemos adicionar lógica de negócio customizada na ativação e na desativação dos **Grains**.
+
+- Podemos pedir a desativação imediata de **Grains** caso seja necessário.
 
 # Conclusão
 

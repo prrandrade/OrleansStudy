@@ -199,8 +199,12 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 De forma resumida:
 
 - Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
-- Métodos dos **Grains** declarados nas intercaces devem sempre devolver uma Task ou uma ValueTask.
+
+- Métodos dos **Grains** declarados nas intercaces devem sempre devolver uma `Task` ou uma `ValueTask`.
+
 - Implementações dos **Grains**  devem, além de implementar as interfaces, herdar da classe **Grain**
 - **Silos** conhecem as interfaces e as implementações dos **Grains**, pois os **Grains** são executados nos **Silos**.
+
 - **Clients** só conhecem as interfaces dos **Grains**, estes se conectam nos **Silos** e recebem o retorno dos métodos.
+
 - Precisamos de uma chave primária para ativar um **Grain** no **Client**.
