@@ -65,7 +65,7 @@ E se usarmos mais de um banco de dados para tarefas diferentes, os scripts **Mai
 
 # Projeto BasicClusterAdoNet
 
-O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada do[HelloWorld][01-HelloWorld], só que agora com os conceitos de configuração de persistência e **cluster** vistos na ótica do ADO.NET.
+O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada do [HelloWorld][01-HelloWorld], só que agora com os conceitos de configuração de persistência e **cluster** gerenciados via ADO.NET.
 
 # Após o projeto BasicClusterAdoNet
 
