@@ -43,7 +43,7 @@ Parece meio obvio, mas vale a pena destacar. Os clientes que acessam os **Silos*
 
 # Projeto HelloWorld
 
-Obviamente vamos começar... ora, do começo! O [projeto HelloWorld][01] mostra um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
+Obviamente vamos começar... ora, do começo! O [projeto HelloWorld][01-HelloWorld] mostra um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
 
 # Após o Projeto HelloWorld
 
@@ -60,11 +60,11 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor][actor_co
 
 ### Virtual Actor
 
-O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld][01] ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
+O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld][01-HelloWorld] ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
 # Projeto PrimaryKeys
 
-Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [O projeto PrimaryKeys][02] demonstra que, a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
+Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [O projeto PrimaryKeys][02-PrimaryKeys] demonstra que, a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
 # Após o projeto PrimaryKeys
 
@@ -72,7 +72,7 @@ Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**,
 
 # Projeto RetrievingPrimaryKeys
 
-[No projeto RetrievingPrimaryKeys][03], vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld][01]).
+[No projeto RetrievingPrimaryKeys][03-RetrievingPrimaryKeys], vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld][01-HelloWorld]).
 
 # Após o projeto RetrievingPrimaryKeys
 
@@ -82,7 +82,7 @@ E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligê
 
 # Projeto GrainActivation
 
-Através do [projeto GrainActivation][04], vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
+Através do [projeto GrainActivation][04-GrainActivation], vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
 
 # Após o projeto GrainActivation
 
@@ -133,7 +133,7 @@ Com isso, já conseguimos montar uma estrutura local com o Orleans, embora ele a
 
 [actor_concept]: https://en.wikipedia.org/wiki/Actor_model#Fundamental_concepts
 [orleans]: https://github.com/dotnet/orleans
-[01]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
-[02]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
-[03]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/03-RetrievingPrimaryKeys
-[04]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/04-GrainActivation
+[01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
+[02-PrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
+[03-RetrievingPrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/03-RetrievingPrimaryKeys
+[04-GrainActivation]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/04-GrainActivation
