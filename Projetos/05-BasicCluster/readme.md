@@ -131,8 +131,6 @@ O mais legal disso tudo é que o **Client** nem sabe (via código) onde estão o
 - Diferentes bases de dados podem ser usadas para clusterização, tarefas agendadas e persistência de objetos. Você não precisa mexer nas bases de dados já existentes e nem precisa usar a mesma base de dados para as três funcionalidades - mas lembre-se de [executar os scripts de preparação das bases][readme-parte2]!
 - **Clients** não sabem onde estão os **Silos** e nem precisam se conectar a eles. Todo este meio de campo é feito através da base de dados de clusterização, o que é uma das vantagens do Orleans. Você consegue subir mais **Silos** no mesmo **Cluster** sem nem precisar reiniciar **Clients**!
 
-
-
 [bluegreen]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 
