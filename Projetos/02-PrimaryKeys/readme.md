@@ -7,7 +7,7 @@
 
 # Introdução
 
-Após passar pelo [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld), não precisamos mais fazer um tour pela estrutura dos projetos; vamos direto ao ponto e entender como o conceito de Virtual Actor simplifica a chamada de métodos.
+Após passar pelo [projeto HelloWorld][HelloWorld], não precisamos mais fazer um tour pela estrutura dos projetos; vamos direto ao ponto e entender como o conceito de Virtual Actor simplifica a chamada de métodos.
 
 # Estrutura do Grain
 
@@ -79,5 +79,4 @@ De forma resumida:
 
 - Métodos de **Grains** com chaves primárias diferentes podem obviamente ser chamados de forma paralela.
 
-
-
+[HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projects/01-HelloWorld

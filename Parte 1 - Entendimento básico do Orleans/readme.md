@@ -82,7 +82,7 @@ E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligê
 
 # Projeto GrainActivation
 
-[Através do projeto GrainActivation](https://github.com/prrandrade/OrleansStudy/tree/master/study/04-GrainActivation), vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
+Através do [projeto GrainActivation][04], vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
 
 # Após o projeto GrainActivation
 

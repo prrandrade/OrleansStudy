@@ -7,7 +7,7 @@
 
 # Introdução
 
-Depois de uma pincelada rápida no [HelloWorld](https://github.com/prrandrade/OrleansStudy/tree/master/study/01-HelloWorld), vamos ver com mais calma como trabalhamos com chaves primárias dentro dos **Grains** - afinal de contas, as chaves primárias não servem apenas para identificar os **Grains** na lógica do Orleans - a própria informação pode ser usada dentro da lógica de negócio, claro!
+Depois de uma pincelada rápida no [HelloWorld][HelloWorld], vamos ver com mais calma como trabalhamos com chaves primárias dentro dos **Grains** - afinal de contas, as chaves primárias não servem apenas para identificar os **Grains** na lógica do Orleans - a própria informação pode ser usada dentro da lógica de negócio, claro!
 
 # Diferentes tipos de chaves primárias
 
@@ -41,5 +41,4 @@ De forma resumida:
 
 - No caso de chaves compostas, não é possível nem ativar **Grains** sem ambos os componentes da chave e nem recuperar apenas um componente da chave primária (o que conseguimos fazer é ignorar o segundo componente de uma chave composta graças ao C# 7.0).
 
-
-
+[HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projects/01-HelloWorld
