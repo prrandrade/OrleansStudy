@@ -3,7 +3,7 @@
 - [Introdução](#introdução)
 - [Persistência e rede para organizar os Silos](#persistência-e-rede-para-organizar-os-silos)
 - [Entendendo a persistência do Orleans](#entendendo-a-persistência-do-orleans)
-- [Scripts de preparação de persistência ADO.NET no Orleans](#scripts-de-preparação-de-persistência-ado-net-no-orleans)
+- [Scripts de preparação de persistência ADO.NET no Orleans](#scripts-de-preparação-de-persistência-ado.net-no-orleans)
 - [Projeto BasicCluster](#projeto-basiccluster)
 - [Após o projeto BasicCluster](#após-o-projeto-basiccluster)
 
