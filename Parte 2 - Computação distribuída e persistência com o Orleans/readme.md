@@ -63,14 +63,14 @@ Por exemplo, se o banco de dados de persistência do Orleans for o SQL Server e 
 
 E se usarmos mais de um banco de dados para tarefas diferentes, os scripts **Main** de ambas as bases de dados precisam ser executados, não se esqueça disso!
 
-# Projeto BasicCluster
+# Projeto BasicClusterAdoNet
 
-O [projeto BasicCluster][basic-cluster] é uma versão revisitada do[HelloWorld][helloworld], só que agora com os conceitos de configuração de persistência e **cluster** vistos na ótica do ADO.NET.
+O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada do[HelloWorld][01-HelloWorld], só que agora com os conceitos de configuração de persistência e **cluster** vistos na ótica do ADO.NET.
 
-# Após o projeto BasicCluster
+# Após o projeto BasicClusterAdoNet
 
 Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**.
 
-[helloworld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
-[basic-cluster]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicCluster
+[01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
+[05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 
