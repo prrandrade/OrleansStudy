@@ -6,6 +6,7 @@
 - [Scripts de preparação de persistência ADO.NET no Orleans](#scripts-de-preparação-de-persistência-adonet-no-orleans)
 - [Projeto BasicClusterAdonet](#projeto-basicclusteradonet)
 - [Após o projeto BasicClusterAdoNet](#após-o-projeto-basicclusteradonet)
+- [Projeto BasicClusterAdoNetMultipleSilos][#projeto-basicclusteradonetmultiplesilos]
 
 # Introdução
 
@@ -72,8 +73,13 @@ Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de f
 
 Repare que, no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc...), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
 
+# Projeto BasicClusterAdoNetMultipleSilos
+
+O projeto [BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] coloca o conceito de múltiplos **Silos** na mesma máquina em prática, vamos conseguir subir dois ou mais **Silos** na mesma maquina e o **Client** os usará de forma equalizada, priorizando o **Silo** menos usado no momento - computação distribuída na prática!
+
 
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
+[06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
 
