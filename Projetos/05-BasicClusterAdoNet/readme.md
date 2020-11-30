@@ -44,7 +44,7 @@ Neste projeto de **Silo**, vamos usar o SQL Server como mecanismo para clusteriz
 
 Desde o [HelloWorld][helloworld], sabemos que é a classe `SiloHostBuilder` que realmente faz o **Silo** ser.. bem, um **Silo**. E originalmente usamos o método `UseLocalhostClustering` para executar o **Silo** em ambiente local sem nenhuma configuração.
 
-O que este método faz é simples: cria um **Silo** com configuração de clusterização própria para ambiente de desenvolvimento, ouvindo as portas padrão de comunicação entre **Client** e **Silo** (porta 11111 entre **Silos** e porta 30000 entre **Client** e **Silo**) e usando os nomes padrão de serviço e cluster ('dev'). Agora precisamos aplicar estas configurações manualmente.
+O que este método faz é simples: cria um **Silo** com configuração de clusterização própria para ambiente de desenvolvimento, ouvindo as portas padrão de comunicação entre **Client** e **Silo** (porta 11111 entre **Silos** e porta 30000 entre **Client** e **Silo**) e usando os nomes padrão de serviço e cluster (*dev*). Agora precisamos aplicar estas configurações manualmente.
 
 A configuração de portas pode ser realizada através do método `ConfigureEndpoints`. Simplesmente escolhemos quais portas serão usadas para a comunicação entre **Silos** (parâmetro `siloPort`) e para a comunicação entre **Silo** e **Client** (parâmetro `gatewayPort`).
 

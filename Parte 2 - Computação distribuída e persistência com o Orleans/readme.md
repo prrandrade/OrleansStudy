@@ -20,8 +20,7 @@ quando queremos que o mesmo sistema seja executado ao mesmo tempo em mais de uma
 
 O Orleans resolve isso de forma estupidamente simples: persistência de dados. Precisamos de uma base de dados unificada a qual todos os **Silos** terão acesso para armazenar informações sobre eles. Ao mesmo tempo, os **Silos** utilizam duas portas de rede para o tráfego de informações: uma porta onde eles conversam entre si e OUTRA porta onde os **Clients** se conectam para ativar e utilizar os **Grains**.
 
-Resumo da história: todas as máquinas que hospedam **Silos** precisam ter acesso a uma **mesma base de dados** e também acesso de **rede entre elas** - pelo menos em uma porta específica. Isso merece ser destacado principalmente em ambientes corporativos, onde é muito fácil esquecer de pedir acesso de uma
-máquina a outra por uma porta específica. Vale destacar também que esta persistência **não tem relação com nenhuma lógica de negócio**, estamos falando do **funcionamento interno do Orleans**.
+Resumo da história: todas as máquinas que hospedam **Silos** precisam ter acesso a uma **mesma base de dados** e também acesso de **rede entre elas** - pelo menos na porta específica de cada **Silo** - nem precisa ser a mesma! Isso merece ser destacado principalmente em ambientes corporativos, onde é muito fácil esquecer de pedir acesso de uma máquina a outra por uma porta específica. Vale destacar também que esta persistência **não tem relação com nenhuma lógica de negócio**, estamos falando do **funcionamento interno do Orleans**.
 
 Vale destacar também que os **Clients** acessam a base de dados para definir qual **Silo** será usado para o processamento do **Grain**. Portanto, os **Clients** precisam ter acesso a todos os **Silos** e também a base de dados.
 
@@ -69,7 +68,11 @@ O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada 
 
 # Após o projeto BasicClusterAdoNet
 
-Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**.
+Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**. Agora vamos montar o primeiro cenário real de computação distribuída - mas vale destacar algo antes!
+
+Repare que, no [projeto BasicClusterAdoNet][BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc...), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
+
+
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
