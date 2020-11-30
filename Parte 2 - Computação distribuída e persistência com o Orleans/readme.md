@@ -70,7 +70,7 @@ O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada 
 
 Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**. Agora vamos montar o primeiro cenário real de computação distribuída - mas vale destacar algo antes!
 
-Repare que, no [projeto BasicClusterAdoNet][BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc...), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
+Repare que, no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc...), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
 
 
 
