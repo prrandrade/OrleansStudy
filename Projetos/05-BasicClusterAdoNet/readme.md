@@ -113,7 +113,7 @@ Configure<ClusterOptions>(options =>
 })
 ```
 
-De forma bastante interessante, não listamos os **Silos** que estão disponíveis no **Cluster**. É a base de dados ADO.NET usada que faz esta comunicação indireta - assim, se um **Silo** novo é criado, não precisamos parar nenhum **Client** para atualizar a listagem de **Silos** disponíveis. A configuração é feita através do método `UseAdoNetClustering` é exatamente a mesma do **Silo** - tanto a string de conexão na propriedade `ConnectionString` quando a identificação da base de dados na propriedade `Invariant`. Os valores para esta propriedade já foram [explicados anteriormente][parte2].
+De forma bastante interessante, não listamos os **Silos** que estão disponíveis no **Cluster**. É a base de dados ADO.NET usada que faz esta comunicação indireta - assim, se um **Silo** novo é criado, não precisamos parar nenhum **Client** para atualizar a listagem de **Silos** disponíveis. A configuração é feita através do método `UseAdoNetClustering` é exatamente a mesma do **Silo** - tanto a string de conexão na propriedade `ConnectionString` quando a identificação da base de dados na propriedade `Invariant`. Os valores para esta propriedade já foram [explicados anteriormente][readme-parte2].
 
 ```csharp
 .UseAdoNetClustering(options =>
