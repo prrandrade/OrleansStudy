@@ -32,8 +32,6 @@
                         try
                         {
                             friend.Ping().WaitWithThrow(TimeSpan.FromMilliseconds(5000));
-                            var t = friend.Ping2().WaitWithThrow(TimeSpan.FromMilliseconds(2000));
-
                             listOfResults.TryAdd(j, true);
                             Console.WriteLine($"{j} - Pong!");
                         }

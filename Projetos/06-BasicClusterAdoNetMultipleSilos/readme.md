@@ -126,7 +126,7 @@ for (var i = 0; i < 10000; i++)
 			listOfResults.TryAdd(j, true);
 			Console.WriteLine($"{j} - Pong!");
 		}
-		catch (Exception ex)
+		catch
 		{
 			listOfResults.TryAdd(j, false);
 			Console.WriteLine($"{j} - Not Pong!");
