@@ -13,6 +13,7 @@
 - [Retrieving Primary Keys][03-RetrievingPrimaryKeys]
 - [Grain Activation][04-GrainActivation]
 - [Basic Cluster com ADO.NET][05-BasicClusterAdoNet]
+- [Basic Cluster com ADO.NET e múltiplos Silos][06-BasicClusterAdoNetMultipleSilos]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 
@@ -24,5 +25,5 @@
 
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 
-
+[06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
 
