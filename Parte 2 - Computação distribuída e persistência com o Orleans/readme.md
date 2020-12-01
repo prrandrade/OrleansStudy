@@ -83,7 +83,9 @@ Quando você monta um Cluster com mais de um **Silo**, pode haver situações qu
 
 # Projeto SiloReconnection
 
-O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com casos onde o **Silo** simplesmente não responde a uma chamada de um **Grain** e/ou o tempo de resposta não é adequado. Basicamente são métodos de extensão do próprio Orleans que lidam com estes casos.
+O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com casos onde o **Silo** simplesmente não responde a uma chamada de um **Grain** feita pelo **Client** e/ou o tempo de resposta não é adequado. Basicamente são métodos de extensão do próprio Orleans que lidam com estes casos.
+
+
 
 
 
