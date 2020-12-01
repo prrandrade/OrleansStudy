@@ -71,15 +71,24 @@ O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada 
 
 Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**. Agora vamos montar o primeiro cenário real de computação distribuída - mas vale destacar algo antes!
 
-Repare que, no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc...), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
+Repare que, no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet], as configurações de portas são feitas no **Silo**. É importante destacar isso porque os **Silos** foram pensados em executar em máquinas diferentes - é computação distribuída, afinal de contas! Sem entrar no mérito de onde os **Silos** serão executados em produção, (máquinas físicas, máquina virtuais, kubernetes, etc), para fins de estudo é totalmente possível executar mais de um **Silo** na mesma máquina física. Para tal precisamos fazer que com cada **Silo** seja executado em portas diferentes.
 
 # Projeto BasicClusterAdoNetMultipleSilos
 
-O projeto [BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] coloca o conceito de múltiplos **Silos** na mesma máquina em prática, vamos conseguir subir dois ou mais **Silos** na mesma maquina e o **Client** os usará de forma equalizada, priorizando o **Silo** menos usado no momento - computação distribuída na prática!
+O [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] coloca o conceito de múltiplos **Silos** na mesma máquina em prática, vamos conseguir subir dois ou mais **Silos** na mesma maquina e o **Client** os usará de forma equalizada, priorizando o **Silo** menos usado no momento - computação distribuída na prática!
+
+# Após o projeto BasicClusterAdoNetMultipleSilos
+
+Quando você monta um Cluster com mais de um **Silo**, pode haver situações que o **Silo** escolhido para o processamento do **Grain** acabe não devolvendo a resposta num tempo adequado, ou simplesmente perca a conexão. Neste caso, precisamos preparar o **Client** para que ele saiba o que fazer caso não aja resposta. Já fizemos isso de forma básica no [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos], mas vamos ver este comportamento mais a fundo.
+
+# Projeto SiloReconnection
+
+O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com casos onde o **Silo** simplesmente não responde a uma chamada de um **Grain** e/ou o tempo de resposta não é adequado. Basicamente são métodos de extensão do próprio Orleans que lidam com estes casos.
 
 
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 [06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
+[07-SiloReconnection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/07-SiloReconnection
 
