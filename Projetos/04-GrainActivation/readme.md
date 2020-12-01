@@ -13,7 +13,7 @@ Sem precisar se adentrar muito ao ciclo de vida dos **Grains** no Orleans, os do
 
 ### Ativação
 
-O **Grain** é ativado quando ele é criado no **Client** (passando as chaves primárias) **OU** quando qualquer método é chamado - o que significa que, o **Client** não precisa se preocupar em ativar um **Grain** se já tiver alguma referência dele numa variável.
+O **Grain** é ativado no **Client** quando qualquer método é chamado - o que significa que, o **Client** não precisa se preocupar em ativar um **Grain** se já tiver alguma referência dele numa variável. A ativação **não** é feita quando o referência do **Grain** é criada (usando a chave primária).
 
 ### Desativação
 
@@ -58,14 +58,15 @@ public Task ExampleMethod(bool withDeactivation)
 
 # Exemplo na prática
 
-Vale a pena explicar o comportamento do **Client** e do **Grain** neste caso, pois estamos lidando com a ativação e desativação de **Grains**. A linha abaixo cria a referência do **Grain**, o que o ativa e executa o método `OnActivateAsync`, como esperado.
+Vale a pena explicar o comportamento do **Client** e do **Grain** neste caso, pois estamos lidando com a ativação e desativação de **Grains**. A linha abaixo cria a referência do **Grain** e chama o método dele, o que o ativa e executa o método `OnActivateAsync`, como esperado.
 
 ```
 var grain = client.GetGrain<IExampleGrain>(0);
+await grain.ExampleMethod(false);
 // log "Grain with primary key 0 is activated." será exibido
 ```
 
-Agora quando chamamos o método `ExampleMethod(true)`, estamos chamando o método `DeactivateOnIdle` - o que força a desativação do **Grain** e, por consequência, a execução do método `OnDeactivateAsync`.
+Agora quando chamamos o método `ExampleMethod(true)`, estamos chamando o método `DeactivateOnIdle` - o que força a desativação do **Grain** e, por conseqüência, a execução do método `OnDeactivateAsync`.
 
 ```
 await grain.ExampleMethod(true);
