@@ -81,7 +81,7 @@ Repare que, no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet], as configura
 
 # Projeto BasicClusterAdoNetMultipleSilos
 
-O [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] coloca o conceito de múltiplos **Silos** na mesma máquina em prática, vamos conseguir subir dois ou mais **Silos** na mesma maquina e o **Client** os usará de forma equalizada, priorizando o **Silo** menos usado no momento - computação distribuída na prática!
+O [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] coloca o conceito de múltiplos **Silos** na mesma máquina em prática, vamos conseguir subir dois ou mais **Silos** na mesma máquina e o **Client** os usará de forma equalizada, priorizando o **Silo** menos usado no momento - computação distribuída na prática!
 
 # Após o projeto BasicClusterAdoNetMultipleSilos
 
@@ -93,7 +93,7 @@ O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com 
 
 # Após o projeto SiloReconnection
 
-Agora que já sabemos como podemos fazer com que o **Client** perceba quando um **Silo** não respondeu a chamada feita a um **Grain** a tempo, chegoua  hora de aprendermos como persistir objetos no lado do servidor, ou seja, como os **Grains** podem salvar objetos na base de dados e recuperá-los posteriormente.
+Agora que já sabemos como podemos fazer com que o **Client** perceba quando um **Silo** não respondeu a chamada feita a um **Grain** a tempo, chegou a  hora de aprendermos como persistir objetos no lado do servidor, ou seja, como os **Grains** podem salvar objetos na base de dados e recuperá-los posteriormente.
 
 # Projeto ObjectPersistence
 
