@@ -7,6 +7,12 @@
 - [Projeto BasicClusterAdonet](#projeto-basicclusteradonet)
 - [Após o projeto BasicClusterAdoNet](#após-o-projeto-basicclusteradonet)
 - [Projeto BasicClusterAdoNetMultipleSilos](#projeto-basicclusteradonetmultiplesilos)
+- [Após o projeto BasicClusterAdoNetMultipleSilos](#após-o-projeto-basicclusteradonetmultiplesilos)
+- [Projeto SiloReconnection](#projeto-siloreconnection)
+- [Após o projeto SiloReconnection](#após-o-projeto-siloreconnection)
+- [Projeto ObjectPersistence](#projeto-objectpersistence)
+- [Após o projeto ObjectPersistence](#após-o-projeto-objectpersistence)
+- [Projeto GrainTimers](#projeto-graintimers)
 
 # Introdução
 
@@ -91,7 +97,19 @@ Agora que já sabemos como podemos fazer com que o **Client** perceba quando um 
 
 # Projeto ObjectPersistence
 
-o [projeto ObjectPersistence] mostra como configurar os **Silos** e os **Grains** para que a persistência de objetos possa ser utilizada corretamente. Sem muitas configurações, cada **Grain** pode serializar e desserializar objetos de forma individual, separados por chave primária.
+o [projeto ObjectPersistence][08-ObjectPersistence] mostra como configurar os **Silos** e os **Grains** para que a persistência de objetos possa ser utilizada corretamente. Sem muitas configurações, cada **Grain** pode serializar e desserializar objetos de forma individual, separados por chave primária.
+
+# Após o projeto ObjectPersistence
+
+Note que, em absolutamente todos os casos que vimos até agora, o **Grain** nunca age, ele apenas reage em relação às chamadas feitas por algum **Client**. Só que é totalmente possível que o próprio **Grain** consiga realizar procedimentos agendados sem precisar ser provocado (a não ser para o próprio agendamento, claro). Existem duas funcionalidades que permitem este comportamento no Orleans: **Timers** e **Reminders** (tarefas agendadas). Vamos primeiramente conhecer os **Timers**, com funcionamento mais simples.
+
+# Projeto GrainTimers
+
+No [projeto GrainTimers][09-GrainTimers], vamos aprender como ativar e desativar **Timers** em **Grains** para a repetição de tarefas sem precisar de estímulo externo (como o **Client**).
+
+# Após o projeto GrainTimers
+
+Agora que já sabemos como criar repetições leves em **Grains** através dos **Timers**, vamos conhecer mais a fundo o uso dos **Reminders**, cujo objetivo básico é o mesmo mas de forma bem mais robusta - tanto que os **Reminders** tem até sua própria persistência para garantir que a tarefa agendada será executada!
 
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
@@ -100,3 +118,4 @@ o [projeto ObjectPersistence] mostra como configurar os **Silos** e os **Grains*
 [06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
 [07-SiloReconnection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/07-SiloReconnection
 [08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
+[09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers

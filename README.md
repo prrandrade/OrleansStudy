@@ -15,7 +15,8 @@
 - [Basic Cluster com ADO.NET][05-BasicClusterAdoNet]
 - [Basic Cluster com ADO.NET e múltiplos Silos][06-BasicClusterAdoNetMultipleSilos]
 - [Silo Reconnection][07-SiloReconnection]
-- [object Persistence][08-ObjectPersistence]
+- [Object Persistence][08-ObjectPersistence]
+- [Grain Timers][09-GrainTimers]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 
@@ -32,3 +33,5 @@
 [07-SiloReconnection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/07-SiloReconnection
 
 [08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
+
+[09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers
