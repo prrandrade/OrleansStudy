@@ -193,5 +193,5 @@ Console.WriteLine($"Conversation with Primary Key 1 has {resultOtherConversation
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [json.net]: https://www.newtonsoft.com/json
 [json.net-serializersettings]: https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm
-[05-BasicClusterAdoNet]: github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
+[05-BasicClusterAdoNet]: http://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 

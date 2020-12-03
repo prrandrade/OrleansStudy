@@ -85,12 +85,18 @@ Quando você monta um Cluster com mais de um **Silo**, pode haver situações qu
 
 O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com casos onde o **Silo** simplesmente não responde a uma chamada de um **Grain** feita pelo **Client** e/ou o tempo de resposta não é adequado. Basicamente são métodos de extensão do próprio Orleans que lidam com estes casos.
 
+# Após o projeto SiloReconnection
 
+Agora que já sabemos como podemos fazer com que o **Client** perceba quando um **Silo** não respondeu a chamada feita a um **Grain** a tempo, chegoua  hora de aprendermos como persistir objetos no lado do servidor, ou seja, como os **Grains** podem salvar objetos na base de dados e recuperá-los posteriormente.
 
+# Projeto ObjectPersistence
+
+o [projeto ObjectPersistence] mostra como configurar os **Silos** e os **Grains** para que a persistência de objetos possa ser utilizada corretamente. Sem muitas configurações, cada **Grain** pode serializar e desserializar objetos de forma individual, separados por chave primária.
 
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
+
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 [06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
 [07-SiloReconnection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/07-SiloReconnection
-
+[08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
