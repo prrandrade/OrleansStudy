@@ -64,7 +64,7 @@ public class ConversationPhraseState
 }
 ```
 
-No projetos dos **Grains**, o pacote `Microsoft.Orleans.Core.Abstractions` deve ser instalado e os objetos persistidos deve ser carregados através de um `IPersistentState<T>`. Neste exemplo, o **Grain** `ConversationGrain` deve ter um campo do tipo `IPersistentState<ConversationState>`:
+No projeto dos **Grains**, o pacote `Microsoft.Orleans.Core.Abstractions` deve ser instalado e os objetos persistidos devem ser carregados através de um `IPersistentState<T>`. Neste exemplo, o **Grain** `ConversationGrain` deve ter um campo do tipo `IPersistentState<ConversationState>`:
 
 ```csharp
 private readonly IPersistentState<ConversationState> _conversationState;

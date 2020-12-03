@@ -6,12 +6,11 @@
 - [Formas de se esperar a resposta do Silo](#formas-de-se-esperar-a-resposta-do-silo)
 - [Porque não há resposta a tempo no Grain](#porque-não-há-resposta-a-tempo-no-grain)
 - [Esperando métodos dos Grains no Client](#esperando-métodos-dos-grains-no-client)
-
 - [Sumário](#sumário)
 
 # Introdução
 
-Vamos aprender como executar mais de um **Silo** na mesma máquina e ver como o acesso de um Client a um **Grain** é distribuído entre os **Silos** sem precisar de nenhuma configuração especial.
+Vamos aprender como adicionar comportamentos no **Client** para reagir quando uma resposta do **Silo** não chega a tempo ou simplesmente não chega.
 
 # Observação rápida sobre a base de dados
 
@@ -131,7 +130,7 @@ Vale destacar que, em todos estes casos, o **Silo** mostrará um alerta de que o
 
 - Podemos usar métodos de extensão do Orleans, disponíveis no **Client**, para lidar com as ocasiões onde o **Silo** não responde a chamada de um **Grain**.
 - O método de extensão `WithTimeout` é mais indicado para não travar a thread principal, se ela está ocupada processando outras chamadas.
-- O Orleans parte do pressuposto de quem um método deve responder em até 200ms antes de escrever um log de alerta. Isso não bloqueia a execução de nada, claro, mas mostra que o Orleans é pensado para o uso de métodos com resposta rápida.
+- O Orleans parte do pressuposto de que um método de um **Grain** deve devolver a resposta em até 200ms antes de escrever um log de alerta. Isso não bloqueia a execução de nada, claro, mas mostra que o Orleans é pensado para o uso de métodos com resposta rápida.
 
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
