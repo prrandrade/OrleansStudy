@@ -143,3 +143,6 @@ Console.ReadKey(true);
 
 - **Timers** não precisam de configuração extra e podem ser usados para tarefas corriqueiras e/ou bem frequentes.
 - **Timers** ficam armazenados em memória, eles são zerados quando o **Grain** é desativado no **Silo**.
+
+[docker-site]: https://www.docker.com/
+[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts

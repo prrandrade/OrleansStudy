@@ -195,3 +195,7 @@ Console.WriteLine($"Conversation with Primary Key 1 has {resultOtherConversation
 [json.net-serializersettings]: https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm
 [05-BasicClusterAdoNet]: http://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 
+[docker-site]: https://www.docker.com/
+[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
+
+

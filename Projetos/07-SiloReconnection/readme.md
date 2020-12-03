@@ -135,3 +135,7 @@ Vale destacar que, em todos estes casos, o **Silo** mostrará um alerta de que o
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [06-BasicClusterAdoNetMultipleSilos]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/06-BasicClusterAdoNetMultipleSilos
 
+[docker-site]: https://www.docker.com/
+[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
+
+

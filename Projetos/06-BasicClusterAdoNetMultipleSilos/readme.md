@@ -186,3 +186,6 @@ friend.Ping().WaitWithThrow(TimeSpan.FromMilliseconds(5000));
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
 
+[docker-site]: https://www.docker.com/
+[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
+

@@ -97,7 +97,7 @@ Agora que já sabemos como podemos fazer com que o **Client** perceba quando um 
 
 # Projeto ObjectPersistence
 
-o [projeto ObjectPersistence][08-ObjectPersistence] mostra como configurar os **Silos** e os **Grains** para que a persistência de objetos possa ser utilizada corretamente. Sem muitas configurações, cada **Grain** pode serializar e desserializar objetos de forma individual, separados por chave primária.
+O [projeto ObjectPersistence][08-ObjectPersistence] mostra como configurar os **Silos** e os **Grains** para que a persistência de objetos possa ser utilizada corretamente. Sem muitas configurações, cada **Grain** pode serializar e desserializar objetos de forma individual, separados por chave primária.
 
 # Após o projeto ObjectPersistence
 
