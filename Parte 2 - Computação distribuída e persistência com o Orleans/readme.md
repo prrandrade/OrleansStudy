@@ -13,6 +13,11 @@
 - [Projeto ObjectPersistence](#projeto-objectpersistence)
 - [Após o projeto ObjectPersistence](#após-o-projeto-objectpersistence)
 - [Projeto GrainTimers](#projeto-graintimers)
+- [Após o projeto GrainTimers](#após-o-projeto-graintimers)
+- [Projeto GrainReminders](#projeto-grainreminders)
+- [Após o projeto GrainReminders](#após-o-projeto-grainreminders)
+- [Sumário dos projetos](#sumário-dos-projetos)
+
 
 # Introdução
 
@@ -111,6 +116,49 @@ No [projeto GrainTimers][09-GrainTimers], vamos aprender como ativar e desativar
 
 Agora que já sabemos como criar repetições leves em **Grains** através dos **Timers**, vamos conhecer mais a fundo o uso dos **Reminders**, cujo objetivo básico é o mesmo mas de forma bem mais robusta - tanto que os **Reminders** tem até sua própria persistência para garantir que a tarefa agendada será executada!
 
+# Projeto GrainReminders
+
+O [projeto GrainReminders][10-GrainReminders] mostra como podemos criar, atualizar e apagar tarefas agendadas, além de configurar os **Silos** para persistir as configurações de uma tarefa agendada, já que está nem precisa do **Grain** ativado para que o **Reminder** seja executado.
+
+# Após o projeto GrainReminders
+
+Com isso, já conseguimos agendar tarefas nos **Grains** usando **Timers** e **Reminders**, com destaque para este pois precisa de uma infraestrutura mais robusta para funcionar - em troca, garante o disparo da tarefa agendada mesmo se o **Grain** não estiver ativado.
+
+# Sumário dos projetos
+
+- Num ambiente corporativo, a organização entre **Silos** e **Clients** pode ser feita através de bases de dados.
+- Diferentes bases de dados podem ser usadas para clusterização, tarefas agendadas e persistência de objetos. Você não precisa mexer nas bases de dados já existentes e nem precisa usar a mesma base de dados para as três funcionalidades - mas lembre-se de executar os scripts de preparação das bases!
+- **Clients** não sabem onde estão os **Silos** e nem precisam se conectar a eles. Todo este meio de campo é feito através da base de dados de clusterização, o que é uma das vantagens do Orleans. Você consegue subir mais **Silos** no mesmo **Cluster** sem nem precisar reiniciar **Clients**!
+- Podemos executar mais de um **Silo** na mesma máquina sem problemas, desde que cada **Silo** use portas específicas para comunicação entre si e entre **Clients**.
+- Todas as configurações de conexão são feitas apenas nos **Silos** e armazenadas na base de dados escolhida. Justamente por isso o **Client** apenas se conecta apenas à base de dados.
+- Não é necessária nenhuma configuração nos **Clients** para distribuir as chamadas dos **Grains** em diferentes **Silos**. A partir que mais de um **Silo** está no mesmo **Cluster**, a computação distribuída já funciona.
+- O método ``WaitWithThrow`` permite esperar por um tempo finito pela resposta de uma chamada, permitindo programar outros comportamentos.
+- Podemos usar métodos de extensão do Orleans, disponíveis no **Client**, para lidar com as ocasiões onde o **Silo** não responde a chamada de um **Grain**.
+- O método de extensão `WithTimeout` é mais indicado para não travar a thread principal, se ela está ocupada processando outras chamadas.
+- O Orleans parte do pressuposto de que um método de um **Grain** deve devolver a resposta em até 200ms antes de escrever um log de alerta. Isso não bloqueia a execução de nada, claro, mas mostra que o Orleans é pensado para o uso de métodos com resposta rápida.
+- Quando usamos a persistência do Orleans, estamos falando na serialização e desserialização de objetos!
+- Podemos usar mais de uma base de dados para persistir diferentes objetos. Neste caso, cada base de dados de persistência precisa ter um nome interno específico para identificação.
+- A serialização de objetos pode ser feita com XML, JSON ou binário (que é o padrão).
+- Mais de um objeto pode ser persistido por **Grain**.
+- A persistência é individualizada por chave primária do **Grain** - objetos de um **Grain** não afetam objetos de outro.
+- Todos os objetos são carregados assim que o **Grain** é ativado, mas nada é salvo automaticamente, lembre-se disso!
+- **Timers** não precisam de configuração extra e podem ser usados para tarefas corriqueiras e/ou bem frequentes.
+- **Timers** ficam armazenados em memória, eles são zerados quando o **Grain** é desativado no **Silo**.
+- **Reminders** precisam de persistência própria para funcionarem corretamente.
+- **Reminders** podem ser criados/atualizados com a mesma referência.
+- Uma vez que um **Reminder** foi cadastrado, não há necessidade de manter o **Grain** ativado, pois o Orleans já faz a ativação do mesmo (se necessário) para o processamento do **Reminder**.
+- Como precisa-se de uma infraestrutura maior para a execução dos **Reminders**, há um prazo mínimo espera de 1 minuto para entre as execuções de um **Reminder**.
+
+# Conclusão
+
+Após passar por todos os exemplos, conseguimos cobrir os primeiros aspectos que fazem do Orleans não apenas uma forma mais elegante de substituir APIs, mas um verdadeiro framework de computação distribuída.
+
+- Conseguimos de fato usar a computação distribuída de forma transparente, de forma que o **Client** nem sabe quantos **Silos** estão de pé no **Cluster** no momento em que a chamada de um **Grain** é feita.
+- Sem nenhuma configuração, as chamadas aos **Grains** são distribuídas entre os **Silos** da forma quais igualitária possível.
+- Os **Grains** podem ter estados, persistidos na base de dados de forma separada de todos o resto da lógica de negócio
+- Tarefas agendadas podem ser realizadas de forma semelhante por **Timers** e **Reminders**, sendo que estes exigem uma infraestrutura de persistência, mas conseguem disparar as tarefas mesmo se o **Grain** não estiver ativado.
+
+
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 
@@ -119,3 +167,4 @@ Agora que já sabemos como criar repetições leves em **Grains** através dos *
 [07-SiloReconnection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/07-SiloReconnection
 [08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
 [09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers
+[10-GrainReminders]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/10-GrainReminders

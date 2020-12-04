@@ -17,6 +17,7 @@
 - [Silo Reconnection][07-SiloReconnection]
 - [Object Persistence][08-ObjectPersistence]
 - [Grain Timers][09-GrainTimers]
+- [GrainReminders][10-GrainReminders]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 
@@ -35,3 +36,5 @@
 [08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
 
 [09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers
+
+[10-GrainReminders]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/10-GrainReminders 
