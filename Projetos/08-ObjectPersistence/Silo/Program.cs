@@ -61,12 +61,28 @@
                 })
 
                 // persistência de objetos organizada via banco de dados
+                // sem nome porque vamos usar uma só
                 .AddAdoNetGrainStorageAsDefault(options =>
                 {
                     options.Invariant = "System.Data.SqlClient";
                     options.ConnectionString = "Server=localhost;Database=Example;User Id=sa;Password=root@1234";
                     options.UseJsonFormat = true;
                 })
+
+                // podemos persistir os objetos em diferentes storages
+                // mas cada um deve ser nomeado internamente
+                //.AddAdoNetGrainStorage("storage1", options =>
+                //{
+                //    options.Invariant = "System.Data.SqlClient";
+                //    options.ConnectionString = "Server=localhost;Database=Example;User Id=sa;Password=root@1234";
+                //    options.UseJsonFormat = true;
+                //})
+                //.AddAdoNetGrainStorage("storage2", options =>
+                //{
+                //    options.Invariant = "System.Data.SqlClient";
+                //    options.ConnectionString = "Server=localhost;Database=Example;User Id=sa;Password=root@1234";
+                //    options.UseJsonFormat = true;
+                //})
 
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(ConversationGrain).Assembly).WithReferences())
                 .ConfigureLogging(logging => logging.AddConsole());

@@ -13,6 +13,8 @@
     {
         private readonly IPersistentState<ConversationState> _conversationState;
 
+        // se estamos usando storages nomeados, o nome do storage deste objeto deve
+        // ser o segundo parâmetro do atributo PersistentState
         public ConversationGrain([PersistentState("conversation")] IPersistentState<ConversationState> conversationState)
         {
             _conversationState = conversationState;

@@ -46,6 +46,23 @@ E reparou que não damos um nome ao tipo de conexão, neste caso `GrainTable` ? 
 })
 ```
 
+Vale destacar que podemos ter mais de uma base de dados persistindo objetos ao mesmo tempo no **Silo**. Neste caso, usamos o método `AddAdoNetGrainStorage` com a identificação interna da base de dados como primeiro parâmetro. Até diferentes bancos de dados podem ser usados, desde que os pacotes referentes a cada banco de dados estejam instalados.
+
+```csharp
+.AddAdoNetGrainStorage("storage1", options =>
+{
+    options.Invariant = "System.Data.SqlClient";
+    options.ConnectionString = "string de conexão";
+    options.UseJsonFormat = true;
+})
+.AddAdoNetGrainStorage("storage2", options =>
+{
+    options.Invariant = "System.Data.SqlClient";
+    options.ConnectionString = "string de conexão";
+    options.UseJsonFormat = true;
+})
+```
+
 # Preparando o Grain para a persistência de Objetos
 
 Antes de mais nada, não é o **Grain** que é persistido, são objetos que o **Grain** usa que podem ser serializados e desserializados. Em primeiro lugar, os objetos persistidos devem ser marcados com o atributo `Serializable`. Vale destacar que não é obrigatório que os objetos 'filhos' tenham o mesmo atributo. No exemplo abaixo, o objeto que realmente será serializado é `ConversationState`. 
@@ -76,6 +93,15 @@ Obviamente você pode ter **Grains** com mais de um objeto de persistência, mas
 
 ```csharp
 public ConversationGrain([PersistentState("conversation")] IPersistentState<ConversationState> conversationState)
+{
+	_conversationState = conversationState;
+}
+```
+
+Se você estiver usando bases de dados nomeadas, é esta hora que a identificação da base usada para a persistência do objeto precisa ser informada:
+
+```csharp
+public ConversationGrain([PersistentState("conversation", "storage1")] IPersistentState<ConversationState> conversationState)
 {
 	_conversationState = conversationState;
 }

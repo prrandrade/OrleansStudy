@@ -59,8 +59,6 @@
         {
             var client = new ClientBuilder()
 
-                .UseLocalhostClustering()
-
                 .Configure<ClusterOptions>(options =>
                 {
                     options.ClusterId = "dev";
@@ -72,6 +70,8 @@
                     options.ConnectionString = "Server=localhost;Database=Example;User Id=sa;Password=root@1234";
                     options.Invariant = "System.Data.SqlClient";
                 })
+
+
                 .ConfigureLogging(logging => logging.AddConsole())
                 .Build();
 
