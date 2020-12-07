@@ -82,19 +82,19 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente local com logging no console
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F03%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local%20com%20logging%20no%20console>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/03%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local%20com%20logging%20no%20console)
 
 # Bootstrap do Client em ambiente local com logging no console
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console)
 
 # Implementando e recuperando chaves primárias dos Grains
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains)
 
 # Sobrecarga na ativação e desativação dos Grains
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains)
 
 # Pacotes necessários para o projeto do Silo com clusterização ADO.NET
 
@@ -142,8 +142,8 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente com clusterização, persistência e reminders ADO.NET
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F07%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%2C%20persist%C3%AAncia%20e%20reminders%20ADO.NET>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/07%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%2C%20persist%C3%AAncia%20e%20reminders%20ADO.NET)
 
 # Bootstrap do Client em ambiente com clusterização ADO.NET
 
-- [Siga o link](<https%3A%2F%2Fgithub.com%2Fprrandrade%2FOrleansStudy%2Ftree%2Fmaster%2FAp%C3%AAndice%20A%20-%20Code%20Snippets%2F08%20-%20Bootstrap%20do%20Client%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%20ADO.NET>)
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/08%20-%20Bootstrap%20do%20Client%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%20ADO.NET)
