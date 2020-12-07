@@ -54,7 +54,7 @@
                 })
 
                 // persistência de objetos organizada via banco de dados
-                .AddAdoNetGrainStorage("GrainTable", options =>
+                .AddAdoNetGrainStorageAsDefault(options =>
                 {
                     options.Invariant = "System.Data.SqlClient";
                     options.ConnectionString = "Server=localhost;Database=Example;User Id=sa;Password=root@1234";
