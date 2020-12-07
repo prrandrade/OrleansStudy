@@ -16,12 +16,19 @@
 - [Bootstrap do Silo em ambiente local com logging no console](#bootstrap-do-silo-em-ambiente-local-com-logging-no-console)
 - [Bootstrap do Client em ambiente local com logging no console](#bootstrap-do-client-em-ambiente-local-com-logging-no-console)
 
+<!-- Básico dos Grains -->
+- [Implementando e recuperando chaves primárias dos Grains](#implementando-e-recuperando-chaves-primárias-dos-grains)
+- [Sobrecarga na ativação e desativação dos Grains]
+(#sobrecarga-na-ativação-e-desativação-dos-grains)
 
+<!-- Clusterização, persistência e reminders nos Silos -->
+
+<!-- Timers e Reminders nos Grains -->
 
 
 # Introdução
 
-Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem.
+Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem - não haverá explicações sobre o funcionamento dos códigos aqui.
 
 # Pacotes necessários para o projeto de interfaces de Grains
 
@@ -202,6 +209,140 @@ internal class Program
 		await client.Connect();
 		Console.WriteLine("Client successfully connected to silo host \n");
 		return client;
+	}
+}
+```
+
+# Implementando e recuperando chaves primárias dos Grains
+
+```csharp
+// chave GUID
+
+public interface IGuidGrain : IGrainWithGuidKey
+{
+	Task<Guid> GetKey();
+}
+
+public class GuidGrain : Grain, IGuidGrain
+{
+	public Task<Guid> GetKey()
+	{
+		return Task.FromResult(this.GetPrimaryKey());
+	}
+}
+```
+
+```csharp
+// chave LONG
+
+public interface ILongGrain : IGrainWithIntegerKey
+{
+	Task<long> GetKey();
+}
+
+public class LongGrain : Grain, ILongGrain
+{
+	public Task<long> GetKey()
+	{
+		return Task.FromResult(this.GetPrimaryKeyLong());
+	}
+}
+```
+
+```csharp
+// chave STRING
+
+public interface IStringGrain : IGrainWithStringKey
+{
+	Task<string> GetKey();
+}
+
+public class StringGrain : Grain, IStringGrain
+{
+	public Task<string> GetKey()
+	{
+		return Task.FromResult(this.GetPrimaryKeyString());
+	}
+}
+```
+
+```csharp
+// chave COMPOSTA GUID + STRING
+
+public interface IGuidAndStringGrain : IGrainWithGuidCompoundKey
+{
+	Task<Guid> GetKey();
+
+	Task<string> GetSecondaryKey();
+}
+
+public class GuidAndStringGrain : Grain, IGuidAndStringGrain
+{
+	public Task<Guid> GetKey()
+	{
+		return Task.FromResult(this.GetPrimaryKey(out _));
+	}
+
+	public Task<string> GetSecondaryKey()
+	{
+		this.GetPrimaryKey(out var keyExt);
+		return Task.FromResult(keyExt);
+	}
+}
+```
+
+```csharp
+// chave COMPOSTA LONG + STRING
+
+public interface ILongAndStringGrain : IGrainWithIntegerCompoundKey
+{
+	Task<long> GetKey();
+
+	Task<string> GetSecondaryKey();
+}
+
+public class LongAndStringGrain : Grain, ILongAndStringGrain
+{
+	public Task<long> GetKey()
+	{
+		return Task.FromResult(this.GetPrimaryKeyLong(out _));
+	}
+
+	public Task<string> GetSecondaryKey()
+	{
+		this.GetPrimaryKeyLong(out var keyExt);
+		return Task.FromResult(keyExt);
+	}
+}
+```
+
+# Sobrecarga na ativação e desativação dos Grains
+
+```csharp
+public interface IExampleGrain : IGrainWithIntegerKey
+{
+	Task DeactivateGrainNow();
+}
+
+public class ExampleGrain : Grain, IExampleGrain
+{
+	public override Task OnActivateAsync()
+	{
+		// sobrecarga na ativação do grain
+		return base.OnActivateAsync();
+	}
+
+	public override Task OnDeactivateAsync()
+	{
+		// sobrecarga na desativação do grain
+		return base.OnDeactivateAsync();
+	}
+	
+	public Task DeactivateGrainNow()
+	{
+		// este método desativa o Grain assim que possível
+		DeactivateOnIdle();
+		return Task.CompletedTask;
 	}
 }
 ```
