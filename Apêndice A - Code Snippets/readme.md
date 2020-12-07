@@ -142,7 +142,7 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente com clusterização, persistência e reminders ADO.NET
 
-- [Siga o link]()
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/07%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%2C%20persist%C3%AAncia%20e%20reminders%20ADO.NET)
 
 # Bootstrap do Client em ambiente com clusterização ADO.NET
 
