@@ -28,7 +28,7 @@
 
 <!-- Códigos para Silo e Client com Clusterização, Persistência e Reminders -->
 - [Bootstrap do Silo em ambiente com clusterização, persistência e reminders ADO.NET](#bootstrap-do-silo-em-ambiente-com-clusterização,-persistência-e-reminders-ado.net)
-- [Bootstrap do Client em ambiente com clusterização ADO.NET](#bootstrap-do-client-em-ambiente-com-clusterização-ado.net)
+- [Bootstrap do Client em ambiente com clusterização ADO.NET](#bootstrap-do-client-em-ambiente-com-clusterização-adonet)
 
 <!-- Timers e Reminders nos Grains -->
 
