@@ -61,11 +61,11 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente local
 
-- [Siga o link](<https://github.com/prrandrade/OrleansStudy/tree/master/Apêndice A - Code Snippets/01 - Bootstrap do Silo em ambiente local>)
+- [Siga o link](<https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/01%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local>)
 
 # Bootstrap do Client em ambiente local
 
-- [Siga o link](<https://github.com/prrandrade/OrleansStudy/tree/master/Apêndice A - Code Snippets/02 - Bootstrap do Client em ambiente local>)
+- [Siga o link](<https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/02%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local>)
 
 # Pacotes necessários para o projeto do Silo com logging no console
 
