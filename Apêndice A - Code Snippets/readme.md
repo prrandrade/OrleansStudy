@@ -18,8 +18,7 @@
 
 <!-- Básico dos Grains -->
 - [Implementando e recuperando chaves primárias dos Grains](#implementando-e-recuperando-chaves-primárias-dos-grains)
-- [Sobrecarga na ativação e desativação dos Grains]
-(#sobrecarga-na-ativação-e-desativação-dos-grains)
+- [Sobrecarga na ativação e desativação dos Grains](#sobrecarga-na-ativação-e-desativação-dos-grains)
 
 <!-- Clusterização, persistência e reminders nos Silos -->
 
