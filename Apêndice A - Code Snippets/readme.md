@@ -61,11 +61,11 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente local
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/01%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/01%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local)
 
 # Bootstrap do Client em ambiente local
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/02%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/02%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local)
 
 # Pacotes necessários para o projeto do Silo com logging no console
 
@@ -82,19 +82,19 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente local com logging no console
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/03%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local%20com%20logging%20no%20console]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/03%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local%20com%20logging%20no%20console)
 
 # Bootstrap do Client em ambiente local com logging no console
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console)
 
 # Implementando e recuperando chaves primárias dos Grains
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains)
 
 # Sobrecarga na ativação e desativação dos Grains
 
-- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains]
+- [Siga o link](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains)
 
 # Pacotes necessários para o projeto do Silo com clusterização ADO.NET
 
@@ -142,69 +142,7 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente com clusterização, persistência e reminders ADO.NET
 
-```csharp
-internal class Program
-{
-	public static async Task<int> Main(string[] args)
-	{
-		try
-		{
-			var host = await StartSilo();
-			Console.WriteLine("\n\n Press Enter to terminate...\n\n");
-			Console.ReadLine();
-			await host.StopAsync();
-			return 0;
-		}
-		catch (Exception ex)
-		{
-			Console.WriteLine(ex);
-			return 1;
-		}
-	}
-
-	private static async Task<ISiloHost> StartSilo()
-	{
-		var builder = new SiloHostBuilder()
-
-			// configurando cluster
-			.Configure<ClusterOptions>(options =>
-			{
-				options.ClusterId = "dev";
-				options.ServiceId = "dev";
-			})
-			
-			// configurando portas usadas pelo Silo, únicas por silo por máquina
-			.ConfigureEndpoints(siloPort: 11111, gatewayPort: 30000)
-
-			// clustering via banco de dados
-			.UseAdoNetClustering(options =>
-			{
-				options.Invariant = "System.Data.SqlClient"; // System.Data.SqlClient ou MySql.Data.MySqlClient ou Npgsql ou Oracle.DataAccess.Client
-				options.ConnectionString = "string de conexão";
-			})
-			
-			// persistência via banco de dados
-			.AddAdoNetGrainStorageAsDefault(options =>
-			{
-				options.Invariant = "System.Data.SqlClient"; // System.Data.SqlClient ou MySql.Data.MySqlClient ou Npgsql ou Oracle.DataAccess.Client
-				options.ConnectionString = "string de conexão";
-			})
-
-			// reminders via banco de dados
-			.UseAdoNetReminderService(options =>
-			{
-				options.Invariant = "System.Data.SqlClient"; // System.Data.SqlClient ou MySql.Data.MySqlClient ou Npgsql ou Oracle.DataAccess.Client
-				options.ConnectionString = "string de conexão";
-			})			
-			
-			.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(**SOME GRAIN**).Assembly).WithReferences());
-
-		var host = builder.Build();
-		await host.StartAsync();
-		return host;
-	}
-}
-```
+- [Siga o link]()
 
 # Bootstrap do Client em ambiente com clusterização ADO.NET
 
