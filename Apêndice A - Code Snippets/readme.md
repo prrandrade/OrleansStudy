@@ -61,76 +61,11 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 # Bootstrap do Silo em ambiente local
 
-```csharp
-internal class Program
-{
-	public static async Task<int> Main(string[] args)
-	{
-		try
-		{
-			var host = await StartSilo();
-			Console.WriteLine("\n\n Press Enter to terminate...\n\n");
-			Console.ReadLine();
-			await host.StopAsync();
-			return 0;
-		}
-		catch (Exception ex)
-		{
-			Console.WriteLine(ex);
-			return 1;
-		}
-	}
-
-	private static async Task<ISiloHost> StartSilo()
-	{
-		var builder = new SiloHostBuilder()
-			.UseLocalhostClustering()
-			.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(**SOME GRAIN**).Assembly).WithReferences());
-			.ConfigureLogging(logging => logging.AddConsole());
-
-		var host = builder.Build();
-		await host.StartAsync();
-		return host;
-	}
-}
-```
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/01%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local]
 
 # Bootstrap do Client em ambiente local
 
-```csharp
-internal class Program
-{
-	private static async Task<int> Main()
-	{
-		try
-		{
-			await using var client = await ConnectClient();
-			// uso do client
-			Console.ReadKey();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			Console.WriteLine($"\nException while trying to run client: {e.Message}");
-			Console.WriteLine("Make sure the silo the client is trying to connect to is running.");
-			Console.WriteLine("\nPress any key to exit.");
-			Console.ReadKey();
-			return 1;
-		}
-	}
-
-	private static async Task<IClusterClient> ConnectClient()
-	{
-		var client = new ClientBuilder()
-			.UseLocalhostClustering()
-			.Build();
-
-		await client.Connect();
-		Console.WriteLine("Client successfully connected to silo host \n");
-		return client;
-	}
-}
-```
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/02%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local]
 
 # Pacotes necessários para o projeto do Silo com logging no console
 
@@ -145,214 +80,21 @@ internal class Program
 - Pacote nuget **Microsoft.Orleans.Core**
 - Projeto de **Interfaces dos Grains**
 
-
 # Bootstrap do Silo em ambiente local com logging no console
 
-```csharp
-internal class Program
-{
-	public static async Task<int> Main(string[] args)
-	{
-		try
-		{
-			var host = await StartSilo();
-			Console.WriteLine("\n\n Press Enter to terminate...\n\n");
-			Console.ReadLine();
-			await host.StopAsync();
-			return 0;
-		}
-		catch (Exception ex)
-		{
-			Console.WriteLine(ex);
-			return 1;
-		}
-	}
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/03%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20local%20com%20logging%20no%20console]
 
-	private static async Task<ISiloHost> StartSilo()
-	{
-		var builder = new SiloHostBuilder()
-			.UseLocalhostClustering()
-			.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(**SOME GRAIN**).Assembly).WithReferences());
-			.ConfigureLogging(logging => logging.AddConsole());
+# Bootstrap do Client em ambiente local com logging no console
 
-		var host = builder.Build();
-		await host.StartAsync();
-		return host;
-	}
-}
-```
-
-# Pacotes necessários para o projeto do Client
-
-```csharp
-internal class Program
-{
-	private static async Task<int> Main()
-	{
-		try
-		{
-			await using var client = await ConnectClient();
-			// uso do client
-			Console.ReadKey();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			Console.WriteLine($"\nException while trying to run client: {e.Message}");
-			Console.WriteLine("Make sure the silo the client is trying to connect to is running.");
-			Console.WriteLine("\nPress any key to exit.");
-			Console.ReadKey();
-			return 1;
-		}
-	}
-
-	private static async Task<IClusterClient> ConnectClient()
-	{
-		var client = new ClientBuilder()
-			.UseLocalhostClustering()
-			.ConfigureLogging(logging => logging.AddConsole())
-			.Build();
-
-		await client.Connect();
-		Console.WriteLine("Client successfully connected to silo host \n");
-		return client;
-	}
-}
-```
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console]
 
 # Implementando e recuperando chaves primárias dos Grains
 
-```csharp
-// chave GUID
-
-public interface IGuidGrain : IGrainWithGuidKey
-{
-	Task<Guid> GetKey();
-}
-
-public class GuidGrain : Grain, IGuidGrain
-{
-	public Task<Guid> GetKey()
-	{
-		return Task.FromResult(this.GetPrimaryKey());
-	}
-}
-```
-
-```csharp
-// chave LONG
-
-public interface ILongGrain : IGrainWithIntegerKey
-{
-	Task<long> GetKey();
-}
-
-public class LongGrain : Grain, ILongGrain
-{
-	public Task<long> GetKey()
-	{
-		return Task.FromResult(this.GetPrimaryKeyLong());
-	}
-}
-```
-
-```csharp
-// chave STRING
-
-public interface IStringGrain : IGrainWithStringKey
-{
-	Task<string> GetKey();
-}
-
-public class StringGrain : Grain, IStringGrain
-{
-	public Task<string> GetKey()
-	{
-		return Task.FromResult(this.GetPrimaryKeyString());
-	}
-}
-```
-
-```csharp
-// chave COMPOSTA GUID + STRING
-
-public interface IGuidAndStringGrain : IGrainWithGuidCompoundKey
-{
-	Task<Guid> GetKey();
-
-	Task<string> GetSecondaryKey();
-}
-
-public class GuidAndStringGrain : Grain, IGuidAndStringGrain
-{
-	public Task<Guid> GetKey()
-	{
-		return Task.FromResult(this.GetPrimaryKey(out _));
-	}
-
-	public Task<string> GetSecondaryKey()
-	{
-		this.GetPrimaryKey(out var keyExt);
-		return Task.FromResult(keyExt);
-	}
-}
-```
-
-```csharp
-// chave COMPOSTA LONG + STRING
-
-public interface ILongAndStringGrain : IGrainWithIntegerCompoundKey
-{
-	Task<long> GetKey();
-
-	Task<string> GetSecondaryKey();
-}
-
-public class LongAndStringGrain : Grain, ILongAndStringGrain
-{
-	public Task<long> GetKey()
-	{
-		return Task.FromResult(this.GetPrimaryKeyLong(out _));
-	}
-
-	public Task<string> GetSecondaryKey()
-	{
-		this.GetPrimaryKeyLong(out var keyExt);
-		return Task.FromResult(keyExt);
-	}
-}
-```
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains]
 
 # Sobrecarga na ativação e desativação dos Grains
 
-```csharp
-public interface IExampleGrain : IGrainWithIntegerKey
-{
-	Task DeactivateGrainNow();
-}
-
-public class ExampleGrain : Grain, IExampleGrain
-{
-	public override Task OnActivateAsync()
-	{
-		// sobrecarga na ativação do grain
-		return base.OnActivateAsync();
-	}
-
-	public override Task OnDeactivateAsync()
-	{
-		// sobrecarga na desativação do grain
-		return base.OnDeactivateAsync();
-	}
-	
-	public Task DeactivateGrainNow()
-	{
-		// este método desativa o Grain assim que possível
-		DeactivateOnIdle();
-		return Task.CompletedTask;
-	}
-}
-```
+- [Siga o link][https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains]
 
 # Pacotes necessários para o projeto do Silo com clusterização ADO.NET
 
