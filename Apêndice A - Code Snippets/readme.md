@@ -12,8 +12,7 @@
 
 <!-- Básico com logging -->
 - [Pacotes necessários para o projeto do Silo com logging no console](#pacotes-necessários-para-o-projeto-do-silo-com-logging-no-console)
-- [Pacotes necessários para o projeto do Client com logging no console]
-(#pacotes-necessários-para-o-projeto-do-client-com-logging-no-console)
+- [Pacotes necessários para o projeto do Client com logging no console](#pacotes-necessários-para-o-projeto-do-client-com-logging-no-console)
 - [Bootstrap do Silo em ambiente local com logging no console](#bootstrap-do-silo-em-ambiente-local-com-logging-no-console)
 - [Bootstrap do Client em ambiente local com logging no console](#bootstrap-do-client-em-ambiente-local-com-logging-no-console)
 
