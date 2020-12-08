@@ -2,7 +2,7 @@
 
 - [Introdução](#1-introdução)
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
-- [Preparando o Silo para persistência de objetos](#3-preparando-o-silo-para-a-persistência-de-objetos)
+- [Preparando o Silo para a persistência de objetos](#3-preparando-o-silo-para-a-persistência-de-objetos)
 - [Preparando o Grain para a persistência de objetos](#4-preparando-o-grain-para-a-persistência-de-objetos)
 - [Lendo, gravando e apagando objetos persistidos](#5-lendo,-gravando-e-apagando-objetos-persistidos)
 - [Exemplificando a persistência de objetos no Client](#6-exemplificando-a-persistência-de-objetos-no-client)
@@ -28,7 +28,7 @@ Neste exemplo, estou usando uma base de dados local do SQL Server, executada via
 
 </div>
 
-# 3. Preparando o Silo para persistência de objetos
+# 3. Preparando o Silo para a persistência de objetos
 
 Em primeiro lugar, não podemos confundir a persistência de objetos do Orleans com a persistência de dados já usada em praticamente todos os sistemas - tanto que nem precisamos alterar a base de dados já usada num projeto, quando o objetivo é a migração para o Orleans, como já explicado no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet]. Pense na persistência de dados do Orleans como uma espécie de gerenciamento de estado dos **Grains** - porque não estamos persistindo dados com regras de negócio, estamos persistindo objetos - literalmente, serializando e desserializando objetos - nada de entidades, relacionados, chave primária, etc.
 
