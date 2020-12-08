@@ -35,6 +35,11 @@
 - [Grains com uma fonte de persistência](#grains-com-uma-fonte-de-persistência)
 - [Grains com múltiplas fontes de persistência](#grains-com-múltiplas-fontes-de-persistência)
 
+### [Timers e Reminders nos Grains](#6-timers-e-reminders-nos-grains)
+
+- [Grains com Timers para tarefas repetidas](#grains-com-timers-para-tarefas-repetidas)
+- [Grains com Reminders para tarefas repetidas](#grains-com-reminders-para-tarefas-repetidas)
+
 ## 1. Introdução
 
 Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem - não haverá explicações sobre o funcionamento dos códigos aqui.
@@ -147,3 +152,9 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 #### [Grains com uma fonte de persistência](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/10%20-%20Grains%20com%20uma%20fonte%20de%20persist%C3%AAncia)
 
 #### [Grains com múltiplas fontes de persistência](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/11%20-%20Grains%20com%20m%C3%BAltiplas%20fontes%20de%20persist%C3%AAncia)
+
+## 6. Timers e Reminders nos Grains
+
+#### [Grains com Timers para tarefas repetidas](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/12%20-%20Grains%20com%20Timers%20para%20tarefas%20repetidas)
+
+#### [Grains com Reminders para tarefas repetidas](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/13%20-%20Grains%20com%20Reminders%20para%20tarefas%20repetidas)
