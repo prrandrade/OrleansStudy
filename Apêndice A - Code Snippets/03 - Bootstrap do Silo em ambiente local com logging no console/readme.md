@@ -1,3 +1,5 @@
+# Bootstrap do Silo em ambiente local com logging no console
+
 ```csharp
 internal class Program
 {

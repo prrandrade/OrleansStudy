@@ -1,4 +1,8 @@
-## Chave GUID
+# Implementando e recuperando chaves primárias dos Grains
+
+
+
+### Chave GUID
 
 ```csharp
 public interface IGuidGrain : IGrainWithGuidKey
@@ -15,7 +19,7 @@ public class GuidGrain : Grain, IGuidGrain
 }
 ```
 
-## Chave LONG
+### Chave LONG
 
 ```csharp
 public interface ILongGrain : IGrainWithIntegerKey
@@ -32,7 +36,7 @@ public class LongGrain : Grain, ILongGrain
 }
 ```
 
-## Chave STRING
+### Chave STRING
 
 ```csharp
 public interface IStringGrain : IGrainWithStringKey
@@ -49,7 +53,7 @@ public class StringGrain : Grain, IStringGrain
 }
 ```
 
-## Chave composta GUID + STRING
+### Chave composta GUID + STRING
 
 ```csharp
 public interface IGuidAndStringGrain : IGrainWithGuidCompoundKey
@@ -74,7 +78,7 @@ public class GuidAndStringGrain : Grain, IGuidAndStringGrain
 }
 ```
 
-# Chave composta LONG + STRING
+### Chave composta LONG + STRING
 
 ```csharp
 public interface ILongAndStringGrain : IGrainWithIntegerCompoundKey
