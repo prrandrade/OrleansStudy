@@ -1,4 +1,4 @@
-# Parte 2 - Computação distribuída e persistência ADO.NET com o Orleans
+# Computação distribuída e persistência ADO.NET com o Orleans
 
 - [Introdução](#1-introdução)
 - [Persistência e rede para organizar os Silos](#2-persistência-e-rede-para-organizar-os-silos)
