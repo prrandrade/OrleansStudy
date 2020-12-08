@@ -1,32 +1,55 @@
-
 # Projeto GrainReminders
 
-- [Introdução](#introdução)
-- [Observação rápida sobre a base de dados](#observação-rápida-sobre-a-base-de-dados)
-- [Quando usar Reminders](#quando-usar-reminders)
-- [Preparando a base de dados para Reminders](#preparando-a-base-de-dados-)
-- [Preparando os Silos para Reminders](#preparando-os-silos-para-reminders)
-- [Como usar Reminders nos Grains](#como-usar-reminders-nos-grains)
-- [Reminders na prática](#reminders-na-prática)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
+- [Quando usar Reminders](#3-quando-usar-reminders)
+- [Preparando a base de dados para Reminders](#4-preparando-a-base-de-dados-)
+- [Preparando os Silos para Reminders](#5-preparando-os-silos-para-reminders)
+- [Como usar Reminders nos Grains](#6-como-usar-reminders-nos-grains)
+- [Reminders na prática](#7-reminders-na-prática)
+- [Sumário](#8-sumário)
 
-# Introdução
+# 1. Introdução
 
 Vamos aprender como usar, ativar e desativar **Reminders** , tarefas agendadas mais pesadas que os **Grains** executar mesmo se não estiverem ativados em nenhum **Silo**.
 
-# Observação rápida sobre a base de dados
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 2. Observação rápida sobre a base de dados
 
 Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
 
-# Quando usar Reminders
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 3. Quando usar Reminders
 
 Basicamente falando, **Timers** e **Reminders ** têm o mesmo objetivo: a execução de tarefas agendadas dentro de um **Grain**. mas há uma diferença básica entre eles. **Reminders** continuam sendo executados mesmo quando o **Grain** não está ativado. Isso significa que, de alguma forma, o Orleans precisa guardar as informações dos Reminders para que a execução seja feita (claro, partindo do pressuposto que pelo menos um **Silo** esteja funcional).
 
-# Preparando a base de dados para Reminders
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 4. Preparando a base de dados para Reminders
 
 Já falamos [sobre isso anteriormente][readme-parte2], mas os **Silos** e a base de dados precisam ser preparados para persistir as informações sobre os **Reminders**. No caso da base de dados, como este exemplo usa o SQL Server, os scripts que precisam ser executados são **SQLServer-Main.sql** e **SQLServer-Reminders.sql**.
 
-# Preparando os Silos para Reminders
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 5. Preparando os Silos para Reminders
 
 No projeto do **Silo**, você precisa instalar dois pacotes nuget para a correta configuração de persistência dos **Reminders**: o pacote **Microsoft.Orleans.Reminders.AdoNet** e o pacote da base de dados escolhida - neste caso, **System.Data.SqlClient**, pois o base de dados usada é o SQL Server. Simplesmente usamos o método de extensão `UseAdoNetReminderService` na preparação do `SiloHostBuilder`. Sem mistério algum, as configurações que precisam ser feitas é  string de conexão com a base de dados na propriedade `ConnectionString` e o tipo de base de dados em `Invariant`. A identificação da base de dados [já foi explicada anteriormente][readme-parte2].
 
@@ -39,7 +62,13 @@ No projeto do **Silo**, você precisa instalar dois pacotes nuget para a correta
 })
 ```
 
-# Como usar Reminders nos Grains
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 6. Como usar Reminders nos Grains
 
 Todos os **Grains** que recebem notificação de execução de **Reminders** precisam implementar a interface `IRemindable`. O mais fácil é implementar na interface do **Grain** mesmo, sem mistério. Os **Grain** precisam ser marcados com esta interface para que o Orleans saiba que eles recebem notificações para a execução dos **Reminders**.
 
@@ -95,7 +124,13 @@ public async Task ReceiveReminder(string reminderName, TickStatus status)
 }
 ```
 
-# Reminders na prática
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 7. Reminders na prática
 
 No **Client**, temos um pequeno roteiro que mostra na prática os comportamentos do **Reminder** no **Grain**. De forma esperada, quando chamamos o método `ActivateReminder` do **Grain**, o **Reminder** é ativado e começará a ser executado primeiramente em 5 segundos e depois a cada minuto (dadas as configurações do mesmo).
 
@@ -149,12 +184,24 @@ Console.WriteLine("Grain desativado, mas o reminder o reativará...");
 Console.ReadKey(true);
 ```
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 8. Sumário
 
 - **Reminders** precisam de persistência própria para funcionarem corretamente.
 - **Reminders** podem ser criados/atualizados com a mesma referência.
 - Uma vez que um **Reminder** foi cadastrado, não há necessidade de manter o **Grain** ativado, pois o Orleans já faz a ativação do mesmo (se necessário) para o processamento do **Reminder**.
 - Como precisa-se de uma infraestrutura maior para a execução dos **Reminders**, há um prazo mínimo espera de 1 minuto para entre as execuções de um **Reminder**.
+
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
 
 [docker-site]: https://www.docker.com/
 [docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
