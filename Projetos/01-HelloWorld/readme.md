@@ -25,18 +25,18 @@ Vamos entender como funciona a estrutura de um projeto bastante simples do Micro
 Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependências devem ser previamente instaladas via Nuget:
 
 - Projeto de **Interfaces**
- - Microsoft.Orleans.Core.Abstractions
- - Microsoft.Orleans.CodeGenerator.MSBuild
+  - Microsoft.Orleans.Core.Abstractions
+  - Microsoft.Orleans.CodeGenerator.MSBuild
 
 - Projeto de **Grains**
- - Microsoft.Orleans.Core.Abstractions
- - Microsoft.Orleans.CodeGenerator.MSBuild
+  - Microsoft.Orleans.Core.Abstractions
+  - Microsoft.Orleans.CodeGenerator.MSBuild
 
 - Projeto do **Silo**
- - Microsoft.Orleans.Server
+  - Microsoft.Orleans.Server
 
 - Projeto do **Client**
- - Microsoft.Orleans.Core
+  - Microsoft.Orleans.Core
 
 Internamente falando, o projeto de **Interfaces** é referenciado por todos os outros projetos, e o projeto de **Grains** é referenciado pelo projeto do **Silo**, afinal de contas, os serviços que rodam no servidor precisam conhecer a lógica de negócio. Obviamente, outras dependências podem e devem ser instaladas conforme a necessidade e as regras de negócio. O que foi listado aqui é o mínimo necessário para uma solução que usa o Microsoft Orleans.
 
