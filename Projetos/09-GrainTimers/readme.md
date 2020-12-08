@@ -1,27 +1,43 @@
-
-
 # Projeto GrainTimers
 
-- [Introdução](#introdução)
-- [Observação rápida sobre a base de dados](#observação-rápida-sobre-a-base-de-dados)
-- [Quando usar Timers](#quanto-usar-timers)
-- [Como usar Timers](#como-usar-timers)
-- [Timers na prática](#timers-na-prática)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
+- [Quando usar Timers](#3-quando-usar-timers)
+- [Como usar Timers](#4-como-usar-timers)
+- [Timers na prática](#5-timers-na-prática)
+- [Sumário](#6-sumário)
 
-# Introdução
+# 1. Introdução
 
 Vamos aprender como usar, ativar e desativar **Timers** que os **Grains** podem usar para a realização de tarefas repetitivas.
 
-# Observação rápida sobre a base de dados
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 2. Observação rápida sobre a base de dados
 
 Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
 
-# Quando usar Timers
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 3. Quando usar Timers
 
 **Timers** são tarefas agendadas para serem executadas de forma contínua enquanto estiverem ativas OU enquanto o **Grain** estiver ativo. Ou seja, se o **Grain** for desativado, o timer também o será! **Timers** também são mais simples em termos de processamento e não precisam de nenhuma configuração extra.
 
-# Como usar Timers
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 4. Como usar Timers
 
 Neste projeto de exemplo, o **Timer** também receberá um objeto como parâmetro (isso é opcional e no máximo **UM** objeto pode ser passado como parâmetro). A variável que representa o **Timer** no **Grain** é simplesmente do tipo `IDisposable`, pois realmente não precisamos de nenhum método específico de **Timers** para manipulação.
 
@@ -89,7 +105,13 @@ public Task DeactivateGrain()
 }
 ```
 
-# Timers na prática
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 5. Timers na prática
 
 No **Client**, temos um pequeno roteiro que mostra na prática os comportamentos citados na ativação. Por exemplo, o código exibido logo abaixo ativa o **Timer**, o que fará com que o **Silo** mostre o contador do **Grain** sendo alterado.
 
@@ -139,10 +161,22 @@ await grain.ActivateTimer();
 Console.ReadKey(true);
 ```
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
+
+# 6. Sumário
 
 - **Timers** não precisam de configuração extra e podem ser usados para tarefas corriqueiras e/ou bem frequentes.
 - **Timers** ficam armazenados em memória, eles são zerados quando o **Grain** é desativado no **Silo**.
+
+<div align="right">
+	
+[Voltar](#projeto-graintimers)
+
+</div>
 
 [docker-site]: https://www.docker.com/
 [docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
