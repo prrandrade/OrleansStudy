@@ -32,6 +32,8 @@
 - [Bootstrap do Silo em ambiente com clusterização, persistência e reminders ADO.NET](#bootstrap-do-silo-em-ambiente-com-clusterização,-persistência-e-reminders-adonet)
 - [Bootstrap do Silo em ambiente com múltiplas fontes de persistência ADO.NET](#bootstrap-do-silo-em-ambiente-com-múltiplas-fontes-de-persistência-adonet)
 - [Bootstrap do Client em ambiente com clusterização ADO.NET](#bootstrap-do-client-em-ambiente-com-clusterização-adonet)
+- [Grains com uma fonte de persistência](#grains-com-uma-fonte-de-persistência)
+- [Grains com múltiplas fontes de persistência](#grains-com-múltiplas-fontes-de-persistência)
 
 ## 1. Introdução
 
@@ -141,3 +143,7 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 #### [Bootstrap do Silo em ambiente com múltiplas fontes de persistência ADO.NET](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/08%20-%20Bootstrap%20do%20Silo%20em%20ambiente%20com%20m%C3%BAltiplas%20fontes%20de%20persist%C3%AAncia%20ADO.NET)
 
 #### [Bootstrap do Client em ambiente com clusterização ADO.NET](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/09%20-%20Bootstrap%20do%20Client%20em%20ambiente%20com%20clusteriza%C3%A7%C3%A3o%20ADO.NET)
+
+#### [Grains com uma fonte de persistência](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/10%20-%20Grains%20com%20uma%20fonte%20de%20persist%C3%AAncia)
+
+#### [Grains com múltiplas fontes de persistência](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/11%20-%20Grains%20com%20m%C3%BAltiplas%20fontes%20de%20persist%C3%AAncia)
