@@ -1,15 +1,21 @@
 # Projeto PrimaryKeys
 
-- [Introdução](#introdução)
-- [Estrutura do Grain](#estrutura-do-grain)
-- [Client executando métodos de forma serial](#client-executando-métodos-de-forma-serial)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Estrutura do Grain](#2-estrutura-do-grain)
+- [Client executando métodos de forma serial](#3-client-executando-métodos-de-forma-serial)
+- [Sumário](#4-sumário)
 
-# Introdução
+# 1. Introdução
 
 Após passar pelo [projeto HelloWorld][01-HelloWorld], não precisamos mais fazer um tour pela estrutura dos projetos; vamos direto ao ponto e entender como o conceito de Virtual Actor simplifica a chamada de métodos.
 
-# Estrutura do Grain
+<div align="right">
+	
+[Voltar](#projeto-primarykeys)
+
+</div>
+
+# 2. Estrutura do Grain
 
 O **Grain** deste exemplo é `ExampleGrain`, que implementa a interface `IExampleGrain`, que por sua vez implementa a interface `IGrainWithIntegerKey` - ou seja, a chave primária é um número inteiro, irrelevante para o exemplo em questão. Enfim, temos o método `Process`, que 'gasta' 3 segundos de processamento e o método `AnoterProcess`, que gasta 5 segundos de processamento.
 
@@ -39,7 +45,13 @@ public class ExampleGrain : Grain, IExampleGrain
 }
 ```
 
-# Client executando métodos de forma serial
+<div align="right">
+	
+[Voltar](#projeto-primarykeys)
+
+</div>
+
+# 3. Client executando métodos de forma serial
 
 No **Client**, o código que chamada o **Grain** chama os dois métodos em tasks diferentes... e mais ainda, a ativação do **Grain** é realizada nas tasks- note o `client.GetGrain<IExampleGrain>(0)` em ambas as tasks. Em teoria, os métodos `Process` e `AnotherProcess` são executados de forma assíncrona - são tasks diferentes, afinal de contas.
 
@@ -69,7 +81,13 @@ Task.WaitAll(t1, t2);
 
 ```
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-primarykeys)
+
+</div>
+
+# 4. Sumário
 
 De forma resumida:
 
@@ -78,5 +96,11 @@ De forma resumida:
 - Métodos do mesmo **Grain** (mesma chave primária) são por definição seriais, precisamos esperar o retorno de um método para conseguir executar outros métodos.
 
 - Métodos de **Grains** com chaves primárias diferentes podem obviamente ser chamados de forma paralela.
+
+<div align="right">
+	
+[Voltar](#projeto-primarykeys)
+
+</div>
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
