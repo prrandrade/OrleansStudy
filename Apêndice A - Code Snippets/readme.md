@@ -1,8 +1,8 @@
 # Apêndice A - Code Snippets
 
-### [Introdução](#introdução)
+### [Introdução](#1-introdução)
 
-### [Básico](#básico)
+### [Básico](#2-básico)
 
 - [Pacotes necessários para o projeto de interfaces de Grains](#pacotes-necessários-para-o-projeto-de-interfaces-de-grains)
 - [Pacotes necessários para o projeto de implementações de Grains](#pacotes-necessários-para-o-projeto-de-implementações-de-grains)
@@ -11,19 +11,19 @@
 - [Bootstrap do Silo em ambiente local](#bootstrap-do-silo-em-ambiente-local)
 - [Bootstrap do Client em ambiente local](#bootstrap-do-client-em-ambiente-local)
 
-### [Básico com Logging](#básico-com-logging)
+### [Básico com Logging](#3-básico-com-logging)
 
 - [Pacotes necessários para o projeto do Silo com logging no console](#pacotes-necessários-para-o-projeto-do-silo-com-logging-no-console)
 - [Pacotes necessários para o projeto do Client com logging no console](#pacotes-necessários-para-o-projeto-do-client-com-logging-no-console)
 - [Bootstrap do Silo em ambiente local com logging no console](#bootstrap-do-silo-em-ambiente-local-com-logging-no-console)
 - [Bootstrap do Client em ambiente local com logging no console](#bootstrap-do-client-em-ambiente-local-com-logging-no-console)
 
-### [Configuração básica dos Grains](#configuração-básica-dos-grains)
+### [Configuração básica dos Grains](#4-configuração-básica-dos-grains)
 
 - [Implementando e recuperando chaves primárias dos Grains](#implementando-e-recuperando-chaves-primárias-dos-grains)
 - [Sobrecarga na ativação e desativação dos Grains](#sobrecarga-na-ativação-e-desativação-dos-grains)
 
-### [Clusterização, persistência e reminders no Silo](#clusterização,-persistência-e-reminders-no-silo)
+### [Clusterização, persistência e reminders no Silo](#5-clusterização,-persistência-e-reminders-no-silo)
 
 - [Pacotes necessários para o projeto do Silo com clusterização ADO.NET](#pacotes-necessários-para-o-projeto-do-silo-com-clusterização-adonet)
 - [Pacotes necessários para o projeto do Silo com persistência ADO.NET](#pacotes-necessários-para-o-projeto-do-silo-com-persistência-adonet)
@@ -33,11 +33,11 @@
 - [Bootstrap do Silo em ambiente com múltiplas fontes de persistência ADO.NET](#bootstrap-do-silo-em-ambiente-com-múltiplas-fontes-de-persistência-adonet)
 - [Bootstrap do Client em ambiente com clusterização ADO.NET](#bootstrap-do-client-em-ambiente-com-clusterização-adonet)
 
-## Introdução
+## 1. Introdução
 
 Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem - não haverá explicações sobre o funcionamento dos códigos aqui.
 
-## Básico
+## 2. Básico
 
 #### Pacotes necessários para o projeto de interfaces de Grains
 
@@ -65,7 +65,7 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 #### [Bootstrap do Client em ambiente local](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/02%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local)
 
-## Básico com Logging
+## 3. Básico com Logging
 
 #### Pacotes necessários para o projeto do Silo com logging no console
 
@@ -84,13 +84,13 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 #### [Bootstrap do Client em ambiente local com logging no console](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/04%20-%20Bootstrap%20do%20Client%20em%20ambiente%20local%20com%20logging%20no%20console)
 
-## Configuração básica dos Grains
+## 4. Configuração básica dos Grains
 
 #### [Implementando e recuperando chaves primárias dos Grains](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/05%20-%20Implementando%20e%20recuperando%20chaves%20prim%C3%A1rias%20dos%20Grains)
 
 #### [Sobrecarga na ativação e desativação dos Grains](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/06%20-%20Sobrecarga%20na%20ativa%C3%A7%C3%A3o%20e%20desativa%C3%A7%C3%A3o%20dos%20Grains)
 
-## Clusterização, persistência e reminders no Silo
+## 5. Clusterização, persistência e reminders no Silo
 
 #### Pacotes necessários para o projeto do Silo com clusterização ADO.NET
 
