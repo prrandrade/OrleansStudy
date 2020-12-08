@@ -46,7 +46,11 @@ Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependên
 
 Internamente falando, o projeto de **Interfaces** é referenciado por todos os outros projetos, e o projeto de **Grains** é referenciado pelo projeto do **Silo**, afinal de contas, os serviços que rodam no servidor precisam conhecer a lógica de negócio. Obviamente, outras dependências podem e devem ser instaladas conforme a necessidade e as regras de negócio. O que foi listado aqui é o mínimo necessário para uma solução que usa o Microsoft Orleans.
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 3. Explicação do projeto de Interfaces
 
@@ -67,7 +71,11 @@ public interface IHelloGrain : IGrainWithIntegerKey
 }
 ```
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 4. Explicação do projeto de Grains
 
@@ -93,7 +101,11 @@ public class HelloGrain : Grain, IHelloGrain
 }
 ```
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 5. Explicação do projeto do Silo
 
@@ -138,7 +150,11 @@ public static async Task<int> Main(string[] args)
 }
 ```
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 6. Explicação do projeto do Client
 
@@ -200,7 +216,11 @@ var response = await friend.SayHello("Good morning, HelloGrain!");
 
 Mais uma vez, quem está executando o método de fato é o **Silo**. A comunicação entre **Client** e **Silo** é feita de forma transparente - note que, na hora de escrever o código, é como se estivéssemos buscando a implementação de uma interface. Mas acredite, estamos fazendo uma comunicação cliente-servidor aqui, com processamento rodando do lado do servidor!
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 7. Resultado
 
@@ -209,7 +229,11 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 - No **Silo**: **SayHello message received: Good morning, HelloGrain!**, é o log que está no **Grain**, executado no Silo.
 - No **Client**: **Client said: 'Good morning, HelloGrain!', so HelloGrain says: Hello!** , é o string devolvido pelo método do **Grain**, recebido pelo Client.
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
 
 # 8. Sumário
 
@@ -220,4 +244,8 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 - **Clients** só conhecem as interfaces dos **Grains**, estes se conectam nos **Silos** e recebem o retorno dos métodos.
 - Precisamos de uma chave primária para ativar um **Grain** no **Client**.
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<div align="right">
+	
+[Voltar](#projeto-hello-world)
+
+</div>
