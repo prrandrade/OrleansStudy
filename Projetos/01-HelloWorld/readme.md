@@ -1,15 +1,15 @@
 # Projeto Hello World
 
-- [Introdução](#introdução)
-- [Dependências de cada projeto](#dependencias-de-cada-projeto)
-- [Explicação do projeto de Interfaces](#explicação-do-projeto-de-interfaces)
-- [Explicação do projeto de Grains](#explicação-do-projeto-de-grains)
-- [Explicação do projeto do Silo](#explicação-do-projeto-do-silo)
-- [Explicação do projeto do Client](#explicação-do-projeto-do-client)
-- [Resultado](#resultado)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Dependências de cada projeto](#2-dependencias-de-cada-projeto)
+- [Explicação do projeto de Interfaces](#3-explicação-do-projeto-de-interfaces)
+- [Explicação do projeto de Grains](#4-explicação-do-projeto-de-grains)
+- [Explicação do projeto do Silo](#5-explicação-do-projeto-do-silo)
+- [Explicação do projeto do Client](#6-explicação-do-projeto-do-client)
+- [Resultado](#7-resultado)
+- [Sumário](#8-sumário)
 
-# Introdução
+# 1. Introdução
 
 Vamos entender como funciona a estrutura de um projeto bastante simples do Microsoft Orleans, dividindo-o em quatro partes.
 
@@ -20,7 +20,7 @@ Vamos entender como funciona a estrutura de um projeto bastante simples do Micro
 
 **LEMBRE-SE SEMPRE DE QUE A LÓGICA DE NEGÓCIO DOS GRAINS É CHAMADA A PARTIR DE UM CLIENTE E EXECUTADA NO SILO**
 
-# Dependências de cada projeto
+# 2. Dependências de cada projeto
 
 Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependências devem ser previamente instaladas via Nuget:
 
@@ -40,7 +40,7 @@ Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependên
 
 Internamente falando, o projeto de **Interfaces** é referenciado por todos os outros projetos, e o projeto de **Grains** é referenciado pelo projeto do **Silo**, afinal de contas, os serviços que rodam no servidor precisam conhecer a lógica de negócio. Obviamente, outras dependências podem e devem ser instaladas conforme a necessidade e as regras de negócio. O que foi listado aqui é o mínimo necessário para uma solução que usa o Microsoft Orleans.
 
-# Explicação do projeto de Interfaces
+# 3. Explicação do projeto de Interfaces
 
 Quando um **Grain** é **ativado** - 'construído' no cliente - ele precisa ser ativado com alguma identificação única, literalmente uma chave primária. Por isso, todo o **Grain** precisa implementar uma destas cinco interfaces:
 
@@ -59,7 +59,7 @@ public interface IHelloGrain : IGrainWithIntegerKey
 }
 ```
 
-# Explicação do projeto de Grains
+# 4. Explicação do projeto de Grains
 
 Todas as implementações de **Grains** precisam obrigatoriamente herdar da classe **Grain** e implementar alguma interface feita no projeto de interfaces. Note que estamos injetando uma dependência de log no construtor do **Grain** - isso já indica que a injeção de dependência pode (e deve) ser usada nos **Grains**. Neste caso específico, o projeto de **Grains** também tem o pacote **Microsoft.Extensions.Logging.Abstractions** instalado, para o uso do `ILogger<>`.
 
@@ -83,7 +83,7 @@ public class HelloGrain : Grain, IHelloGrain
 }
 ```
 
-# Explicação do projeto do Silo
+# 5. Explicação do projeto do Silo
 
 O projeto do **Silo** simplesmente configura e inicia um `ISiloHost`. O método abaixo cria uma `SiloHostBuilder` adicionando algumas configurações extras:
 
@@ -126,7 +126,7 @@ public static async Task<int> Main(string[] args)
 }
 ```
 
-# Explicação do projeto do Client
+# 6. Explicação do projeto do Client
 
 O projeto do **Client** tem um funcionamento bem semelhante ao do **Silo**. Primeiramente precisamos criar um `IClusterClient` com a configuração mais simples possível:
 
@@ -186,7 +186,7 @@ var response = await friend.SayHello("Good morning, HelloGrain!");
 
 Mais uma vez, quem está executando o método de fato é o **Silo**. A comunicação entre **Client** e **Silo** é feita de forma transparente - note que, na hora de escrever o código, é como se estivéssemos buscando a implementação de uma interface. Mas acredite, estamos fazendo uma comunicação cliente-servidor aqui, com processamento rodando do lado do servidor!
 
-# Resultado
+# 7. Resultado
 
 Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmos as duas aplicações (primeiro o **Silo** e depois o **Client**), toda a lógica está no **Grain** e os logs mostrarão o seguinte:
 
@@ -194,9 +194,7 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 - No **Client**: **Client said: 'Good morning, HelloGrain!', so HelloGrain says: Hello!** , é o string devolvido pelo método do **Grain**, recebido pelo Client.
 
 
-# Sumário
-
-De forma resumida:
+# 8. Sumário
 
 - Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
 
