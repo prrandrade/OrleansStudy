@@ -4,7 +4,7 @@
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
 - [Preparando o Silo para a persistência de objetos](#3-preparando-o-silo-para-a-persistência-de-objetos)
 - [Preparando o Grain para a persistência de objetos](#4-preparando-o-grain-para-a-persistência-de-objetos)
-- [Lendo, gravando e apagando objetos persistidos](#5-lendo,-gravando-e-apagando-objetos-persistidos)
+- [Lendo, gravando e apagando objetos persistidos](#5-lendo-gravando-e-apagando-objetos-persistidos)
 - [Exemplificando a persistência de objetos no Client](#6-exemplificando-a-persistência-de-objetos-no-client)
 - [Sumário](#7-sumário)
 
