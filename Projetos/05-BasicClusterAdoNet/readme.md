@@ -1,22 +1,34 @@
 # Projeto BasicClusterAdoNet
 
-- [Introdução](#introdução)
-- [Observação rápida sobre a base de dados](#observação-rápida-sobre-a-base-de-dados)
-- [Pacotes que precisam ser instalados no Silo](#pacotes-que-precisam-ser-instalados-no-silo)
-- [Configurações no Silo](#configurações-no-silo)
-- [Pacotes que precisam ser instalados no Client](#pacotes-que-precisam-ser-instalados-no-client)
-- [Configurações no Client](#configurações-no-client)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
+- [Pacotes que precisam ser instalados no Silo](#3-pacotes-que-precisam-ser-instalados-no-silo)
+- [Configurações no Silo](#4-configurações-no-silo)
+- [Pacotes que precisam ser instalados no Client](#5-pacotes-que-precisam-ser-instalados-no-client)
+- [Configurações no Client](#6-configurações-no-client)
+- [Sumário](#7-sumário)
 
-# Introdução
+# 1. Introdução
 
 Agora que já sabemos a estruturação de um projeto Orleans e entendemos a teoria de um **Cluster**, vamos aprender como configurar um projeto que depende uma base de dados para organização do **Cluster**.
 
-# Observação rápida sobre a base de dados
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 2. Observação rápida sobre a base de dados
 
 Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
 
-# Pacotes que precisam ser instalados no Silo
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 3. Pacotes que precisam ser instalados no Silo
 
 Vale relembrar que você precisa instalar alguns pacotes nuget extras no **Silo** quando estamos usando uma base de dados ADO.NET para a organização do **Cluster** e da persistência em geral:
 
@@ -40,7 +52,13 @@ Neste projeto de **Silo**, vamos usar o SQL Server como mecanismo para clusteriz
 - Microsoft.Orleans.Reminders.AdoNet
 - Microsoft.Orleans.Persistence.AdoNet
 
-# Configurações no Silo
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 4. Configurações no Silo
 
 Desde o [HelloWorld][helloworld], sabemos que é a classe `SiloHostBuilder` que realmente faz o **Silo** ser.. bem, um **Silo**. E originalmente usamos o método `UseLocalhostClustering` para executar o **Silo** em ambiente local sem nenhuma configuração.
 
@@ -88,7 +106,13 @@ UseAdoNetClustering(options =>
 })
 ```
 
-# Pacotes que precisam ser instalados no Client
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 5. Pacotes que precisam ser instalados no Client
 
 Quando um **Client** acessa um **cluster** gerenciado por uma base de dados, ele **deve ter acesso a esta base**. E isso também vale para os pacotes nuget necessários. Você precisa instalar o pacote nuget **Microsoft.Orleans.Clustering.AdoNet** e o pacote de dados referente a base de dados usada para clusterização - neste exemplo específico, é **System.Data.SqlClient**, pois a base usada é o SQL Server.
 
@@ -99,7 +123,13 @@ Resumindo, no projeto **Client**, os seguintes pacotes estão instalados:
 - Microsoft.Orleans.Clustering.AdoNet
 - System.Data.SqlClient
 
-# Configurações no Client
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 6. Configurações no Client
 
 De forma curiosa, mas não surpreendente, as mudanças que precisamos fazer nas configurações do `ClientBuilder` são bem semelhantes. precisamos tirar o uso do método `UseLocalhostClustering`, pois não estamos mais conectando a um **Silo** local, por exemplo, e fazer as configurações manualmente.
 
@@ -125,11 +155,23 @@ De forma bastante interessante, não listamos os **Silos** que estão disponíve
 
 O mais legal disso tudo é que o **Client** nem sabe (via código) onde estão os **Silos**. É tudo feito via as informações na base de dados! O Orleans faz o meio de campo sempre garantindo que o **Silo** mais ocioso do **Cluster** ative o **Grain** e execute seus métodos, quando for chamado!
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
+
+# 7. Sumário
 
 - Num ambiente corporativo, a organização entre **Silos** e **Clients** pode ser feita através de bases de dados.
 - Diferentes bases de dados podem ser usadas para clusterização, tarefas agendadas e persistência de objetos. Você não precisa mexer nas bases de dados já existentes e nem precisa usar a mesma base de dados para as três funcionalidades - mas lembre-se de [executar os scripts de preparação das bases][readme-parte2]!
 - **Clients** não sabem onde estão os **Silos** e nem precisam se conectar a eles. Todo este meio de campo é feito através da base de dados de clusterização, o que é uma das vantagens do Orleans. Você consegue subir mais **Silos** no mesmo **Cluster** sem nem precisar reiniciar **Clients**!
+
+<div align="right">
+	
+[Voltar](#projeto-basicclusteradonet)
+
+</div>
 
 [bluegreen]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
