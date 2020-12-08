@@ -20,7 +20,7 @@ Vamos entender como funciona a estrutura de um projeto bastante simples do Micro
 
 **LEMBRE-SE SEMPRE DE QUE A LÓGICA DE NEGÓCIO DOS GRAINS É CHAMADA A PARTIR DE UM CLIENTE E EXECUTADA NO SILO**
 
-<span style="float:right;">[Voltar](#projeto-hello-world)</span>
+<span style="float:right; display: block;">[Voltar](#projeto-hello-world)</span>
 
 # 2. Dependências de cada projeto
 
