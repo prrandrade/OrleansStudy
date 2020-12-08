@@ -3,7 +3,7 @@
 - [Introdução](#1-introdução)
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
 - [Quando usar Reminders](#3-quando-usar-reminders)
-- [Preparando a base de dados para Reminders](#4-preparando-a-base-de-dados-)
+- [Preparando a base de dados para Reminders](#4-preparando-a-base-de-dados-para-reminders)
 - [Preparando os Silos para Reminders](#5-preparando-os-silos-para-reminders)
 - [Como usar Reminders nos Grains](#6-como-usar-reminders-nos-grains)
 - [Reminders na prática](#7-reminders-na-prática)
