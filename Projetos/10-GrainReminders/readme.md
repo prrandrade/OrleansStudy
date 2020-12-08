@@ -15,7 +15,7 @@ Vamos aprender como usar, ativar e desativar **Reminders** , tarefas agendadas m
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -25,7 +25,7 @@ Neste exemplo, estou usando uma base de dados local do SQL Server, executada via
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -35,7 +35,7 @@ Basicamente falando, **Timers** e **Reminders ** têm o mesmo objetivo: a execu�
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -45,7 +45,7 @@ Já falamos [sobre isso anteriormente][readme-parte2], mas os **Silos** e a base
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -64,7 +64,7 @@ No projeto do **Silo**, você precisa instalar dois pacotes nuget para a correta
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -126,7 +126,7 @@ public async Task ReceiveReminder(string reminderName, TickStatus status)
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -186,7 +186,7 @@ Console.ReadKey(true);
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
@@ -199,7 +199,7 @@ Console.ReadKey(true);
 
 <div align="right">
 	
-[Voltar](#projeto-graintimers)
+[Voltar](#projeto-grainreminders)
 
 </div>
 
