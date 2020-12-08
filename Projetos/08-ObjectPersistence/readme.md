@@ -1,22 +1,34 @@
 # Projeto ObjectPersistenceAdoNet
 
-- [Introdução](#introdução)
-- [Observação rápida sobre a base de dados](#observação-rápida-sobre-a-base-de-dados)
-- [Preparando o Silo para persistência de objetos](#preparando-o-silo-para-a-persistência-de-objetos)
-- [Preparando o Grain para a persistência de objetos](#preparando-o-grain-para-a-persistência-de-objetos)
-- [Lendo, gravando e apagando objetos persistidos](#lendo,-gravando-e-apagando-objetos-persistidos)
-- [Exemplificando a persistência de objetos no Client](#exemplificando-a-persistência-de-objetos-no-client)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
+- [Preparando o Silo para persistência de objetos](#3-preparando-o-silo-para-a-persistência-de-objetos)
+- [Preparando o Grain para a persistência de objetos](#4-preparando-o-grain-para-a-persistência-de-objetos)
+- [Lendo, gravando e apagando objetos persistidos](#5-lendo,-gravando-e-apagando-objetos-persistidos)
+- [Exemplificando a persistência de objetos no Client](#6-exemplificando-a-persistência-de-objetos-no-client)
+- [Sumário](#7-sumário)
 
-# Introdução
+# 1. Introdução
 
 Aqui vamos entender como funciona a persistência de objetos do Orleans usando uma base de dados ADO.NET.
 
-# Observação rápida sobre a base de dados
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 2. Observação rápida sobre a base de dados
 
 Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
 
-# Preparando o Silo para persistência de objetos
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 3. Preparando o Silo para persistência de objetos
 
 Em primeiro lugar, não podemos confundir a persistência de objetos do Orleans com a persistência de dados já usada em praticamente todos os sistemas - tanto que nem precisamos alterar a base de dados já usada num projeto, quando o objetivo é a migração para o Orleans, como já explicado no [projeto BasicClusterAdoNet][05-BasicClusterAdoNet]. Pense na persistência de dados do Orleans como uma espécie de gerenciamento de estado dos **Grains** - porque não estamos persistindo dados com regras de negócio, estamos persistindo objetos - literalmente, serializando e desserializando objetos - nada de entidades, relacionados, chave primária, etc.
 
@@ -63,7 +75,13 @@ Vale destacar que podemos ter mais de uma base de dados persistindo objetos ao m
 })
 ```
 
-# Preparando o Grain para a persistência de Objetos
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 4. Preparando o Grain para a persistência de Objetos
 
 Antes de mais nada, não é o **Grain** que é persistido, são objetos que o **Grain** usa que podem ser serializados e desserializados. Em primeiro lugar, os objetos persistidos devem ser marcados com o atributo `Serializable`. Vale destacar que não é obrigatório que os objetos 'filhos' tenham o mesmo atributo. No exemplo abaixo, o objeto que realmente será serializado é `ConversationState`. 
 
@@ -107,7 +125,13 @@ public ConversationGrain([PersistentState("conversation", "storage1")] IPersiste
 }
 ```
 
-# Lendo, gravando e apagando objetos persistidos
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 5. Lendo, gravando e apagando objetos persistidos
 
 Cada variável do tipo `IPersistentState` apresenta três métodos que devem ser usados para ler, escrever ou apagar o respectivo objeto persistido:
 
@@ -167,7 +191,13 @@ public async Task EraseHistory()
 }
 ```
 
-# Exemplificando a persistência de objetos no Client
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 6. Exemplificando a persistência de objetos no Client
 
 De forma prática, o **Client** apenas faz as chamadas para os métodos do **Grain**, ele não precisa saber nem se há alguma espécie de persistência do outro lado, isso é completamente transparente por parte do **Client**. Por exemplo, o trecho de código abaixo envia três mensagens e as recupera. O **Client** não sabe que o **Grain** está
 
@@ -205,7 +235,13 @@ resultOtherConversation = (await otherConversation.ShowHistory()).ToList();
 Console.WriteLine($"Conversation with Primary Key 1 has {resultOtherConversation.Count} messages");
 ```
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
+
+</div>
+
+# 7. Sumário
 
 - Quando usamos a persistência do Orleans, estamos falando na serialização e desserialização de objetos!
 - Podemos usar mais de uma base de dados para persistir diferentes objetos. Neste caso, cada base de dados de persistência precisa ter um nome interno específico para identificação.
@@ -214,13 +250,16 @@ Console.WriteLine($"Conversation with Primary Key 1 has {resultOtherConversation
 - A persistência é individualizada por chave primária do **Grain** - objetos de um **Grain** não afetam objetos de outro.
 - Todos os objetos são carregados assim que o **Grain** é ativado, mas nada é salvo automaticamente, lembre-se disso!
 
+<div align="right">
+	
+[Voltar](#projeto-objectpersistenceadonet)
 
+</div>
 
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [json.net]: https://www.newtonsoft.com/json
 [json.net-serializersettings]: https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm
 [05-BasicClusterAdoNet]: http://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
-
 [docker-site]: https://www.docker.com/
 [docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
 
