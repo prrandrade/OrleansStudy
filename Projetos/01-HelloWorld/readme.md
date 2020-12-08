@@ -40,6 +40,8 @@ Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependên
 
 Internamente falando, o projeto de **Interfaces** é referenciado por todos os outros projetos, e o projeto de **Grains** é referenciado pelo projeto do **Silo**, afinal de contas, os serviços que rodam no servidor precisam conhecer a lógica de negócio. Obviamente, outras dependências podem e devem ser instaladas conforme a necessidade e as regras de negócio. O que foi listado aqui é o mínimo necessário para uma solução que usa o Microsoft Orleans.
 
+[Voltar](#projeto-hello-world)
+
 # 3. Explicação do projeto de Interfaces
 
 Quando um **Grain** é **ativado** - 'construído' no cliente - ele precisa ser ativado com alguma identificação única, literalmente uma chave primária. Por isso, todo o **Grain** precisa implementar uma destas cinco interfaces:
@@ -58,6 +60,8 @@ public interface IHelloGrain : IGrainWithIntegerKey
 	Task<string> SayHello(string greeting);
 }
 ```
+
+[Voltar](#projeto-hello-world)
 
 # 4. Explicação do projeto de Grains
 
@@ -82,6 +86,8 @@ public class HelloGrain : Grain, IHelloGrain
 	}
 }
 ```
+
+[Voltar](#projeto-hello-world)
 
 # 5. Explicação do projeto do Silo
 
@@ -125,6 +131,8 @@ public static async Task<int> Main(string[] args)
 	}
 }
 ```
+
+[Voltar](#projeto-hello-world)
 
 # 6. Explicação do projeto do Client
 
@@ -186,6 +194,8 @@ var response = await friend.SayHello("Good morning, HelloGrain!");
 
 Mais uma vez, quem está executando o método de fato é o **Silo**. A comunicação entre **Client** e **Silo** é feita de forma transparente - note que, na hora de escrever o código, é como se estivéssemos buscando a implementação de uma interface. Mas acredite, estamos fazendo uma comunicação cliente-servidor aqui, com processamento rodando do lado do servidor!
 
+[Voltar](#projeto-hello-world)
+
 # 7. Resultado
 
 Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmos as duas aplicações (primeiro o **Silo** e depois o **Client**), toda a lógica está no **Grain** e os logs mostrarão o seguinte:
@@ -193,16 +203,15 @@ Fizemos duas aplicações console aqui, o **Silo** e o **Client**. Ao executarmo
 - No **Silo**: **SayHello message received: Good morning, HelloGrain!**, é o log que está no **Grain**, executado no Silo.
 - No **Client**: **Client said: 'Good morning, HelloGrain!', so HelloGrain says: Hello!** , é o string devolvido pelo método do **Grain**, recebido pelo Client.
 
+[Voltar](#projeto-hello-world)
 
 # 8. Sumário
 
 - Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
-
 - Métodos dos **Grains** declarados nas intercaces devem sempre devolver uma `Task` ou uma `ValueTask`.
-
 - Implementações dos **Grains**  devem, além de implementar as interfaces, herdar da classe **Grain**
 - **Silos** conhecem as interfaces e as implementações dos **Grains**, pois os **Grains** são executados nos **Silos**.
-
 - **Clients** só conhecem as interfaces dos **Grains**, estes se conectam nos **Silos** e recebem o retorno dos métodos.
-
 - Precisamos de uma chave primária para ativar um **Grain** no **Client**.
+
+[Voltar](#projeto-hello-world)
