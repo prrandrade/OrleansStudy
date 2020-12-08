@@ -10,14 +10,14 @@ public class ExampleState
 ```
 
 ```csharp
- public class ConversationGrain : Grain, IConversationGrain
+public class Grain : Grain, IConversationGrain
 {
 	private readonly IPersistentState<ExampleState> _state;
 
 	// nome único para o objeto persistido no atributo PersitentState
-	public ConversationGrain([PersistentState("state")] IPersistentState<ConversationState> conversationState)
+	public ConversationGrain([PersistentState("state")] IPersistentState<ExampleState> state)
 	{
-		_conversationState = conversationState;
+		_state = state;
 	}
 
 	public async Task ReadState()
