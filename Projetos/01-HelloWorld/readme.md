@@ -20,6 +20,8 @@ Vamos entender como funciona a estrutura de um projeto bastante simples do Micro
 
 **LEMBRE-SE SEMPRE DE QUE A LÓGICA DE NEGÓCIO DOS GRAINS É CHAMADA A PARTIR DE UM CLIENTE E EXECUTADA NO SILO**
 
+[Voltar](#projeto-hello-world)
+
 # 2. Dependências de cada projeto
 
 Para que uma estrutura de projetos que usa o Orleans funcione, algumas dependências devem ser previamente instaladas via Nuget:
