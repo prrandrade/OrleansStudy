@@ -1,23 +1,23 @@
 # Entendimento básico do Orleans
 
-- [Introdução](#introdução)
-- [Nomenclatura](#nomenclatura)
-- [Projeto HelloWorld](#projeto-helloworld)
-- [Após o projeto HelloWorld](#após-o-projeto-helloworld)
-- [Projeto PrimaryKeys](#projeto-primarykeys)
-- [Após o projeto PrimaryKeys](#após-o-projeto-primarykeys)
-- [Projeto RetrievingPrimaryKeys](#projeto-retrievingprimarykeys)
-- [Após o projeto RetrievingPrimaryKeys](#após-o-projeto-retrievingprimarykeys)
-- [Projeto GrainActivation](#projeto-grainactivation)
-- [Após o projeto GrainActivation](#após-o-projeto-grainactivation)
-- [Sumário dos projetos](#sumário-dos-projetos)
-- [Conclusão](#conclusão)
+- [Introdução](#1-introdução)
+- [Nomenclatura](#2-nomenclatura)
+- [Projeto HelloWorld](#3-projeto-helloworld)
+- [Após o projeto HelloWorld](#4-após-o-projeto-helloworld)
+- [Projeto PrimaryKeys](#5-projeto-primarykeys)
+- [Após o projeto PrimaryKeys](#6-após-o-projeto-primarykeys)
+- [Projeto RetrievingPrimaryKeys](#7-projeto-retrievingprimarykeys)
+- [Após o projeto RetrievingPrimaryKeys](#8-após-o-projeto-retrievingprimarykeys)
+- [Projeto GrainActivation](#9-projeto-grainactivation)
+- [Após o projeto GrainActivation](#10-após-o-projeto-grainactivation)
+- [Sumário dos projetos](#11-sumário-dos-projetos)
+- [Conclusão](#12-conclusão)
 
-# Introdução
+# 1. Introdução
 
 Direto ao ponto, o [Microsoft Orleans][orleans] é um projeto que permite criar e executar sistemas distribuídos de forma simples, abstraindo os conceitos de distribuição de tarefas, quem executa o que, e como um processamento é retomado caso a máquina que esteja o fazendo saia do ar. Mas primeiro, vamos entender a nomenclatura básica do que significa cada coisa do Orleans (spoiler: pense basicamente numa arquitetura cliente-servidor, mas turbinada).
 
-# Nomenclatura
+# 2. Nomenclatura
 
 ### Grains
 
@@ -39,13 +39,13 @@ A graça de um **Cluster** com vários **Silos** é que estes se comunicam entre
 
 ### Silo Clients
 
-Parece meio obvio, mas vale a pena destacar. Os clientes que acessam os **Silos** para o processamento dos **Grains** são chamados de **Silo Clients**, ou apenas **Clients**. Insisto: os **Clients** não executam o código dos **Grains**, são os **Silos** que fazem o trabalho sujo.
+Parece meio óbvio, mas vale a pena destacar. Os clientes que acessam os **Silos** para o processamento dos **Grains** são chamados de **Silo Clients**, ou apenas **Clients**. Insisto: os **Clients** não executam o código dos **Grains**, são os **Silos** que fazem o trabalho sujo.
 
-# Projeto HelloWorld
+# 3. Projeto HelloWorld
 
 Obviamente vamos começar... ora, do começo! O [projeto HelloWorld][01-HelloWorld] mostra um exemplo BEM SIMPLES de como **Client**, **Silo**, **Grains**  e **Interfaces** funcionam.
 
-# Após o Projeto HelloWorld
+# 4. Após o Projeto HelloWorld
 
 OK, se você passou pelo Hello World, já viu como um **Client** se conecta ao **Silo** para executar o código de um **Grain**. Mas deve ter achado estranho o fato de que precisamos de uma chave primária para utilizar um **Grain**. Isso é necessário porque o Microsoft Orleans apresenta o conceito de Virtual Actor. E para entender o conceito de Virtual Actor, vamos entender o conceito de Actor.
 
@@ -62,33 +62,33 @@ A Wikipedia já tem uma [explicação BASTANTE detalhada sobre o Actor][actor_co
 
 O Orleans, através dos **Grains** abstraí toda esta parte burocrática dos Actors - usando o conceito de **Virtual Actor**. Foi exatamente o que [fizemos no HelloWorld][01-HelloWorld] ao fazer o **Client** ativar um **Grain** que é executado no **Silo**. E na ativação, passamos uma chave primária para garantir que a execução é única do lado do servidor. Vamos ver isso com calma no próximo exemplo.
 
-# Projeto PrimaryKeys
+# 5. Projeto PrimaryKeys
 
 Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a questão da concorrência dos métodos no mesmo **Grain**. [O projeto PrimaryKeys][02-PrimaryKeys] demonstra que, a partir do momento que a chave primária é a mesma, a execução dos métodos é literalmente serial, apenas quando um método é executado que outro método é executado.
 
-# Após o projeto PrimaryKeys
+# 6. Após o projeto PrimaryKeys
 
 Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**, se eles forem ativados com a mesma chave primária - o que é ótimo para serializar operações do mesmo usuário, por exemplo. Além disso, nada impede que a chave primária também seja a chave primária de uma base de dados- representando um usuário ou uma operação. Mas como usar a chave primária durante a lógica de negócio? Fácil, resgatando os valores dentro do **Grain**.
 
-# Projeto RetrievingPrimaryKeys
+# 7. Projeto RetrievingPrimaryKeys
 
 [No projeto RetrievingPrimaryKeys][03-RetrievingPrimaryKeys], vamos ver como podemos recuperar chaves primárias de **Grains**, e conhecer mais a fundo os cinco diferentes tipos de chaves primárias que podem ser usadas para individualizar **Grains** (já pincelamos sobre isso no [HelloWorld][01-HelloWorld]).
 
-# Após o projeto RetrievingPrimaryKeys
+# 8. Após o projeto RetrievingPrimaryKeys
 
 Isso já foi falado algumas vezes, mas vale a pela relembrar: a lógica dos **Grains** é executada no servidor - nos **Silos**, e não no **Client**. Isso significa que, de alguam forma, os **Grains** precisam começar a existir do lado do servidor para que seus métodos sejam chamados pelo **Client**. Este processo dentro do Orleans é chamado de ativação, e pode acontecer quando o Grain é carregado juntamente com sua chave primária.
 
 E note que eu disse **pode** acontecer, porque o Orleans tem uma certa inteligência para manter **Grains** carregados e evitar processamento de ativações e desativações que não fazem sentido. 
 
-# Projeto GrainActivation
+# 9. Projeto GrainActivation
 
 Através do [projeto GrainActivation][04-GrainActivation], vamos aprender como usar a ativação e desativação dos **Grains** juntamente com lógica de negócio customizada.
 
-# Após o projeto GrainActivation
+# 10. Após o projeto GrainActivation
 
 Conseguimos sem muito mistério adicionar lógica de negócio nos métodos básicos do ciclo de vida de um **Grain** - o que já cobre vários cenários diferentes.
 
-# Sumário dos projetos
+# 11. Sumário dos projetos
 
 - Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
 
@@ -117,7 +117,7 @@ Conseguimos sem muito mistério adicionar lógica de negócio nos métodos bási
 
 - Podemos pedir a desativação imediata de **Grains** caso seja necessário.
 
-# Conclusão
+# 12. Conclusão
 
 Após passar por todos os exemplos, conseguimos cobrir os aspectos mais básicos do Orleans:
 
