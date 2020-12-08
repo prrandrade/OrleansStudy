@@ -1,15 +1,21 @@
 # Projeto RetrievingPrimaryKeys
 
-- [Introdução](#introdução)
-- [Diferentes tipos de chaves primárias](#diferentes-tipos-de-chaves-primárias)
-- [Exemplo na prática](#exemplo-na-prática)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Diferentes tipos de chaves primárias](#2-diferentes-tipos-de-chaves-primárias)
+- [Exemplo na prática](#3-exemplo-na-prática)
+- [Sumário](#4-sumário)
 
-# Introdução
+# 1. Introdução
 
 Depois de uma pincelada rápida no [HelloWorld][01-HelloWorld], vamos ver com mais calma como trabalhamos com chaves primárias dentro dos **Grains** - afinal de contas, as chaves primárias não servem apenas para identificar os **Grains** na lógica do Orleans - a própria informação pode ser usada dentro da lógica de negócio, claro!
 
-# Diferentes tipos de chaves primárias
+<div align="right">
+	
+[Voltar](#projeto-retrievingprimiarykeys)
+
+</div>
+
+# 2. Diferentes tipos de chaves primárias
 
 Neste exemplo, temos cinco **Grains**, sendo que cada um implementa um tipo diferente de chave primária. A ideia é resgatar a chave primária (e a secundária em caso de chave composta), para que ambas possam ser usadas na lógica de negócio.
 
@@ -27,11 +33,23 @@ Existem também dois tipos de **Grains** com chave composta - formada por uma ch
 
 - `IGrainWithIntegerCompoundKey`, onde a chave primária é um `Long` (novamente o nome engana) e a chave secundária é um `String`. Para resgatar os valores, usamos o método `this.GetPrimaryKeyLong(out var keyExt)`, que devolve o valor da chave primária (`Long`) e preenche o valor da chave secundária (`String`) na variável `keyExt`. Se você só precisa da chave primária, a chamada do método deve ser `this.GetPrimaryKeyLong(out _)`.
 
-# Exemplo na prática
+<div align="right">
+	
+[Voltar](#projeto-retrievingprimiarykeys)
+
+</div>
+
+# 3. Exemplo na prática
 
 O código deste exemplo é bem simples, apenas ativando os **Grains** usando as respectivas chaves primárias (e secundárias, quando necessário) e usando métodos que, por sua vez, devolvem as mesmas chaves usadas na ativação, sem mistério.
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-retrievingprimiarykeys)
+
+</div>
+
+# 4. Sumário
 
 De forma resumida:
 
@@ -40,5 +58,11 @@ De forma resumida:
 - Existem cinco tipos diferentes de chaves primárias no Orleans para individualizar **Grains**.
 
 - No caso de chaves compostas, não é possível nem ativar **Grains** sem ambos os componentes da chave e nem recuperar apenas um componente da chave primária (o que conseguimos fazer é ignorar o segundo componente de uma chave composta graças ao C# 7.0).
+
+<div align="right">
+	
+[Voltar](#projeto-retrievingprimiarykeys)
+
+</div>
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
