@@ -11,7 +11,7 @@ Depois de uma pincelada rápida no [HelloWorld][01-HelloWorld], vamos ver com ma
 
 <div align="right">
 	
-[Voltar](#projeto-retrievingprimiarykeys)
+[Voltar](#projeto-retrievingprimarykeys)
 
 </div>
 
@@ -35,7 +35,7 @@ Existem também dois tipos de **Grains** com chave composta - formada por uma ch
 
 <div align="right">
 	
-[Voltar](#projeto-retrievingprimiarykeys)
+[Voltar](#projeto-retrievingprimarykeys)
 
 </div>
 
@@ -45,7 +45,7 @@ O código deste exemplo é bem simples, apenas ativando os **Grains** usando as 
 
 <div align="right">
 	
-[Voltar](#projeto-retrievingprimiarykeys)
+[Voltar](#projeto-retrievingprimarykeys)
 
 </div>
 
@@ -61,7 +61,7 @@ De forma resumida:
 
 <div align="right">
 	
-[Voltar](#projeto-retrievingprimiarykeys)
+[Voltar](#projeto-retrievingprimarykeys)
 
 </div>
 
