@@ -5,7 +5,7 @@
 - [Projeto HelloWorld](#3-projeto-helloworld)
 - [Virtual Actor e Primary Key](#4-virtual-actor-e-primary-key)
 - [Projeto PrimaryKeys](#5-projeto-primarykeys)
-- [Primary Keys nas regras de negócio](#6-Primary-key-nas-regras-de-negócio)
+- [Primary Keys nas regras de negócio](#6-primary-keys-nas-regras-de-negócio)
 - [Projeto RetrievingPrimaryKeys](#7-projeto-retrievingprimarykeys)
 - [Criando e removendo Grains da memória](#8-criando-e-removendo-grains-da-memória)
 - [Projeto GrainActivation](#9-projeto-grainactivation)
