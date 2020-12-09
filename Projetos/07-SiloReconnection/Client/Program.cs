@@ -79,8 +79,6 @@
         {
             var client = new ClientBuilder()
 
-                .UseLocalhostClustering()
-
                 .Configure<ClusterOptions>(options =>
                 {
                     options.ClusterId = "dev";
