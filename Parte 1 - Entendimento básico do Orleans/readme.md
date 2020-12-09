@@ -3,15 +3,14 @@
 - [Introdução](#1-introdução)
 - [Nomenclatura](#2-nomenclatura)
 - [Projeto HelloWorld](#3-projeto-helloworld)
-- [Após o projeto HelloWorld](#4-após-o-projeto-helloworld)
+- [Virtual Actor e Primary Key](#4-virtual-actor-e-primary-key)
 - [Projeto PrimaryKeys](#5-projeto-primarykeys)
-- [Após o projeto PrimaryKeys](#6-após-o-projeto-primarykeys)
+- [Primary Keys nas regras de negócio](#6-Primary-key-nas-regras-de-negócio)
 - [Projeto RetrievingPrimaryKeys](#7-projeto-retrievingprimarykeys)
-- [Após o projeto RetrievingPrimaryKeys](#8-após-o-projeto-retrievingprimarykeys)
+- [Criando e removendo Grains da memória](#8-criando-e-removendo-grains-da-memória)
 - [Projeto GrainActivation](#9-projeto-grainactivation)
-- [Após o projeto GrainActivation](#10-após-o-projeto-grainactivation)
-- [Sumário dos projetos](#11-sumário-dos-projetos)
-- [Conclusão](#12-conclusão)
+- [Sumário dos projetos](#10-sumário-dos-projetos)
+- [Conclusão](#11-conclusão)
 
 # 1. Introdução
 
@@ -63,7 +62,7 @@ Obviamente vamos começar... ora, do começo! O [projeto HelloWorld][01-HelloWor
 
 </div>
 
-# 4. Após o Projeto HelloWorld
+# 4. Virtual Actor e Primary Key
 
 OK, se você passou pelo Hello World, já viu como um **Client** se conecta ao **Silo** para executar o código de um **Grain**. Mas deve ter achado estranho o fato de que precisamos de uma chave primária para utilizar um **Grain**. Isso é necessário porque o Microsoft Orleans apresenta o conceito de Virtual Actor. E para entender o conceito de Virtual Actor, vamos entender o conceito de Actor.
 
@@ -96,7 +95,7 @@ Uma das graças do Virtual Actor é que a gente não precisa se preocupar com a 
 
 </div>
 
-# 6. Após o projeto PrimaryKeys
+# 6. Primary Keys nas regras de negócio
 
 Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**, se eles forem ativados com a mesma chave primária - o que é ótimo para serializar operações do mesmo usuário, por exemplo. Além disso, nada impede que a chave primária também seja a chave primária de uma base de dados- representando um usuário ou uma operação. Mas como usar a chave primária durante a lógica de negócio? Fácil, resgatando os valores dentro do **Grain**.
 
@@ -116,7 +115,7 @@ Já sabemos que não precisamos nos preocupar com a concorrência de **Grains**,
 
 </div>
 
-# 8. Após o projeto RetrievingPrimaryKeys
+# 8. Criando e removendo Grains da memória
 
 Isso já foi falado algumas vezes, mas vale a pela relembrar: a lógica dos **Grains** é executada no servidor - nos **Silos**, e não no **Client**. Isso significa que, de alguam forma, os **Grains** precisam começar a existir do lado do servidor para que seus métodos sejam chamados pelo **Client**. Este processo dentro do Orleans é chamado de ativação, e pode acontecer quando o Grain é carregado juntamente com sua chave primária.
 
@@ -138,17 +137,7 @@ Através do [projeto GrainActivation][04-GrainActivation], vamos aprender como u
 
 </div>
 
-# 10. Após o projeto GrainActivation
-
-Conseguimos sem muito mistério adicionar lógica de negócio nos métodos básicos do ciclo de vida de um **Grain** - o que já cobre vários cenários diferentes.
-
-<div align="right">
-	
-[Voltar](#entendimento-básico-do-orleans)
-
-</div>
-
-# 11. Sumário dos projetos
+# 10. Sumário dos projetos
 
 - Interfaces de **Grains** são conhecidas por todos os projetos, e devem implementar uma das interfaces que garante uma chave primaria.
 
@@ -183,7 +172,7 @@ Conseguimos sem muito mistério adicionar lógica de negócio nos métodos bási
 
 </div>
 
-# 12. Conclusão
+# 11. Conclusão
 
 Após passar por todos os exemplos, conseguimos cobrir os aspectos mais básicos do Orleans:
 
