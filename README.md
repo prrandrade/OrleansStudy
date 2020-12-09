@@ -20,6 +20,7 @@
 - [Object Persistence][08-ObjectPersistence]
 - [Grain Timers][09-GrainTimers]
 - [Grain Reminders][10-GrainReminders]
+- [Silo Dependency Injection][11-SiloDependencyInjection]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [02-PrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
@@ -31,3 +32,4 @@
 [08-ObjectPersistence]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/08-ObjectPersistence
 [09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers
 [10-GrainReminders]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/10-GrainReminders 
+[11-SiloDependencyInjection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/11-SiloDependencyInjection
