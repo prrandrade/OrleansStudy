@@ -9,7 +9,7 @@
 - [Projeto BasicClusterAdoNetMultipleSilos](#7-projeto-basicclusteradonetmultiplesilos)
 - [Client se reconectando ao Silo](#8-client-se-reconectando-ao-silo)
 - [Projeto SiloReconnection](#9-projeto-siloreconnection)
-- [Conheçendo a persistência de objetos do Orleans](#10-conhecendo-a-persistência-de-objetos-do-orleans)
+- [Conhecendo a persistência de objetos do Orleans](#10-conhecendo-a-persistência-de-objetos-do-orleans)
 - [Projeto ObjectPersistence](#11-projeto-objectpersistence)
 - [Agendando tarefas repetidas em Grains diretamente na memória](#12-agendando-tarefas-repetidas-em-grains-diretamente-na-memória)
 - [Projeto GrainTimers](#13-projeto-graintimers)
@@ -149,7 +149,7 @@ O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com 
 
 </div>
 
-# 10. Conheçendo a persistência de objetos do Orleans
+# 10. Conhecendo a persistência de objetos do Orleans
 
 Agora que já sabemos como podemos fazer com que o **Client** perceba quando um **Silo** não respondeu a chamada feita a um **Grain** a tempo, chegou a  hora de aprendermos como persistir objetos no lado do servidor, ou seja, como os **Grains** podem salvar objetos na base de dados e recuperá-los posteriormente.
 
