@@ -22,9 +22,21 @@ Pode-se argumentar que o mecanismo padrão de injeção de dependência do .NET 
 
 Veja, quando o **Client** acessa o **Cluster** para executar os **Grains**, a execução de fato é em algum **Silo**. Portanto, é o **Silo** que faz todo o processamento local, incluindo o carregamento dos **Grains**. Portanto, faz sentido que ele seja o responsável por injetar as dependências de cada **Grain**.
 
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
 # 3. Projeto SiloDependencyInjection
 
 No [projeto SiloDependencyInjection](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/11-SiloDependencyInjection) Vamos ver na prática como configurar a injeção de dependência nos **Silos** para que o **Grains** recebeam outros objetos (provavelmente contendo regras de negócio e acesso a dados) quando são usados.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
 
 
 

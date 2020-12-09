@@ -6,6 +6,8 @@
 
 ### [Parte 2 - Computação distribuída e persistência com o Orleans](https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans)
 
+### [Parte 3 - Arquitetura de sistemas com o Orleans](https://github.com/prrandrade/OrleansStudy/tree/master/Parte%203%20-%20Arquitetura%20de%20sistemas%20com%20o%20Orleans)
+
 ### [Apêndice A - Trechos de código para implementação rápida](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets)
 
 ## Links diretamente para os projetos
