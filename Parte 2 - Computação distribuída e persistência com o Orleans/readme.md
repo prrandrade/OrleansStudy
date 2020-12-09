@@ -5,19 +5,18 @@
 - [Entendendo a persistência do Orleans](#3-entendendo-a-persistência-do-orleans)
 - [Scripts de preparação de persistência ADO.NET no Orleans](#4-scripts-de-preparação-de-persistência-adonet-no-orleans)
 - [Projeto BasicClusterAdonet](#5-projeto-basicclusteradonet)
-- [Após o projeto BasicClusterAdoNet](#6-após-o-projeto-basicclusteradonet)
+- [Mais de um Silo na mesma máquina](#6-mais-de-um-silo-na-mesma-máquina)
 - [Projeto BasicClusterAdoNetMultipleSilos](#7-projeto-basicclusteradonetmultiplesilos)
-- [Após o projeto BasicClusterAdoNetMultipleSilos](#8-após-o-projeto-basicclusteradonetmultiplesilos)
+- [Client se reconectando ao Silo](#8-client-se-reconectando-ao-silo)
 - [Projeto SiloReconnection](#9-projeto-siloreconnection)
-- [Após o projeto SiloReconnection](#10-após-o-projeto-siloreconnection)
+- [Conheçendo a persistência de objetos do Orleans](#10-conhecendo-a-persistência-de-objetos-do-orleans)
 - [Projeto ObjectPersistence](#11-projeto-objectpersistence)
-- [Após o projeto ObjectPersistence](#12-após-o-projeto-objectpersistence)
+- [Agendando tarefas repetidas em Grains diretamente na memória](#12-agendando-tarefas-repetidas-em-grains-diretamente-na-memória)
 - [Projeto GrainTimers](#13-projeto-graintimers)
-- [Após o projeto GrainTimers](#14-após-o-projeto-graintimers)
+- [Agendando e persistindo tarefas repetidas em Grains](#14-agendando-e-persistindo-tarefas-repetidas-em-grains)
 - [Projeto GrainReminders](#15-projeto-grainreminders)
-- [Após o projeto GrainReminders](#16-após-o-projeto-grainreminders)
-- [Sumário dos projetos](#17-sumário-dos-projetos)
-- [Conclusão](#18-conclusão)
+- [Sumário dos projetos](#16-sumário-dos-projetos)
+- [Conclusão](#17-conclusão)
 
 # 1. Introdução
 
@@ -108,7 +107,7 @@ O [projeto BasicClusterAdoNet][05-BasicClusterAdoNet] é uma versão revisitada 
 
 </div>
 
-# 6. Após o projeto BasicClusterAdoNet
+# 6. Mais de um Silo na mesma máquina
 
 Conseguimos montar o primeiro cenário real com um **Client** e um **Silo** de forma distribuída. Usando uma base de dados com ADO.NET, o Orleans permite que a comunicação entre as diferentes partes seja indireta o suficiente para que mais **Silos** possam ser carregados sem precisar reiniciar os **Clients**. Agora vamos montar o primeiro cenário real de computação distribuída - mas vale destacar algo antes!
 
@@ -130,7 +129,7 @@ O [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos] 
 
 </div>
 
-# 8. Após o projeto BasicClusterAdoNetMultipleSilos
+# 8. Client se reconectando ao Silo
 
 Quando você monta um Cluster com mais de um **Silo**, pode haver situações que o **Silo** escolhido para o processamento do **Grain** acabe não devolvendo a resposta num tempo adequado, ou simplesmente perca a conexão. Neste caso, precisamos preparar o **Client** para que ele saiba o que fazer caso não aja resposta. Já fizemos isso de forma básica no [projeto BasicClusterAdoNetMultipleSilos][06-BasicClusterAdoNetMultipleSilos], mas vamos ver este comportamento mais a fundo.
 
@@ -150,7 +149,7 @@ O [projeto SiloReconnection][07-SiloReconnection] apresenta formas de lidar com 
 
 </div>
 
-# 10. Após o projeto SiloReconnection
+# 10. Conheçendo a persistência de objetos do Orleans
 
 Agora que já sabemos como podemos fazer com que o **Client** perceba quando um **Silo** não respondeu a chamada feita a um **Grain** a tempo, chegou a  hora de aprendermos como persistir objetos no lado do servidor, ou seja, como os **Grains** podem salvar objetos na base de dados e recuperá-los posteriormente.
 
@@ -170,7 +169,7 @@ O [projeto ObjectPersistence][08-ObjectPersistence] mostra como configurar os **
 
 </div>
 
-# 12. Após o projeto ObjectPersistence
+# 12. Agendando tarefas repetidas em Grains diretamente na memória
 
 Note que, em absolutamente todos os casos que vimos até agora, o **Grain** nunca age, ele apenas reage em relação às chamadas feitas por algum **Client**. Só que é totalmente possível que o próprio **Grain** consiga realizar procedimentos agendados sem precisar ser provocado (a não ser para o próprio agendamento, claro). Existem duas funcionalidades que permitem este comportamento no Orleans: **Timers** e **Reminders** (tarefas agendadas). Vamos primeiramente conhecer os **Timers**, com funcionamento mais simples.
 
@@ -190,7 +189,7 @@ No [projeto GrainTimers][09-GrainTimers], vamos aprender como ativar e desativar
 
 </div>
 
-# 14. Após o projeto GrainTimers
+# 14. Agendando e persistindo tarefas repetidas em Grains
 
 Agora que já sabemos como criar repetições leves em **Grains** através dos **Timers**, vamos conhecer mais a fundo o uso dos **Reminders**, cujo objetivo básico é o mesmo mas de forma bem mais robusta - tanto que os **Reminders** tem até sua própria persistência para garantir que a tarefa agendada será executada!
 
@@ -210,17 +209,7 @@ O [projeto GrainReminders][10-GrainReminders] mostra como podemos criar, atualiz
 
 </div>
 
-# 16. Após o projeto GrainReminders
-
-Com isso, já conseguimos agendar tarefas nos **Grains** usando **Timers** e **Reminders**, com destaque para este pois precisa de uma infraestrutura mais robusta para funcionar - em troca, garante o disparo da tarefa agendada mesmo se o **Grain** não estiver ativado.
-
-<div align="right">
-	
-[Voltar](#computação-distribuída-e-persistência-adonet-com-o-orleans)
-
-</div>
-
-# 17. Sumário dos projetos
+# 16. Sumário dos projetos
 
 - Num ambiente corporativo, a organização entre **Silos** e **Clients** pode ser feita através de bases de dados.
 - Diferentes bases de dados podem ser usadas para clusterização, tarefas agendadas e persistência de objetos. Você não precisa mexer nas bases de dados já existentes e nem precisa usar a mesma base de dados para as três funcionalidades - mas lembre-se de executar os scripts de preparação das bases!
@@ -251,7 +240,7 @@ Com isso, já conseguimos agendar tarefas nos **Grains** usando **Timers** e **R
 
 </div>
 
-# 18. Conclusão
+# 17. Conclusão
 
 Após passar por todos os exemplos, conseguimos cobrir os primeiros aspectos que fazem do Orleans não apenas uma forma mais elegante de substituir APIs, mas um verdadeiro framework de computação distribuída.
 
