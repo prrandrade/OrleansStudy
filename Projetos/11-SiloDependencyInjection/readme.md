@@ -1,20 +1,33 @@
 # Projeto SiloDependencyInjection
 
-- [Introdução](#introdução)
-- [Observação rápida sobre a base de dados](#observação-rápida-sobre-a-base-de-dados)
-- [Preparando a base de dados deste projeto](#preparando-a-base-de-dados-deste-projeto)
-- [Exemplo da injeção de dependência em ação](#exemplo-da-injeção-de-dependência-em-ação)
-- [Sumário](#sumário)
+- [Introdução](#1-introdução)
+- [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
+- [Preparando a base de dados deste projeto](#3-preparando-a-base-de-dados-deste-projeto)
+- [Configurando a Injeção de dependência no Silo](#4-configurando-a-injeção-de-dependência-no-silo)
+- [Exemplo da injeção de dependência em ação](#5-exemplo-da-injeção-de-dependência-em-ação)
+- [Sumário](#6-sumário)
 
-# Introdução
+# 1. Introdução
 
 Agora que já sabemos a estruturação de um projeto Orleans e entendemos a teoria de um **Cluster**, vamos aprender como configurar um projeto que depende uma base de dados para organização do **Cluster**.
 
-# Observação rápida sobre a base de dados
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
+
+# 2. Observação rápida sobre a base de dados
 
 Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker](https://github.com/prrandrade/DockerShortcuts). Use a linha de comando que eu separei no repositório [DockerShortcuts](https://github.com/prrandrade/DockerShortcuts).
 
-# Preparando a base de dados deste projeto
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
+
+# 3. Preparando a base de dados deste projeto
 
 Além da base de dados previamente preparada, precisamos de uma segunda base de dados que será usada para a regra de negócio. Use o script abaixo para criar a base e a tabela:
 
@@ -30,7 +43,13 @@ CREATE TABLE Users (
 );
 ```
 
-# Configurando a Injeção de dependência no Silo
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
+
+# 4. Configurando a Injeção de dependência no Silo
 
 Pense no **Silo**, conceitualmente falando, como a única aplicação que é executada - 'única' de forma bem relativa, porque o **Silo** executa os **Grains**. Portanto, o **Silo** também é o maestro da injeção de dependência dos **Grains**. Na configuração do `SiloHostBuilder`, podemos usar o método `ConfigureServices` para configurar as injeções de dependência, sem nenhum mistério.
 
@@ -112,7 +131,13 @@ public class UserGrain : Grain, IUserGrain
 }
 ```
 
-# Exemplo da injeção de dependência em ação
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
+
+# 5. Exemplo da injeção de dependência em ação
 
 O **Client** obviamente não precisa saber o que está acontecendo no **Silo** e nos **Grains**, ele apenas chama os métodos e recebem as respostas dos **Grains**. O trecho abaixo, por exemplo, cadastra um novo cliente com base na chave primária.
 
@@ -160,7 +185,19 @@ if (!result4)
 	Console.WriteLine("Usuário 12345 já foi registrado!");
 ```
 
-# Sumário
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
+
+# 6. Sumário
 
 - Sem mistério, o **Silo** permite cadastrar de forma padrão as injeções de dependência necessárias para os **Grains**.
 - **Clients**, como esperado, não precisam saber sobre a arquitetura dos **Silos** e **Grains** para funcionarem corretamente.
+
+<div align="right">
+	
+[Voltar](#projeto-silodependencyinjection)
+
+</div>
