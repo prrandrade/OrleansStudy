@@ -9,7 +9,7 @@
 
 # 1. Introdução
 
-Agora que já sabemos a estruturação de um projeto Orleans e entendemos a teoria de um **Cluster**, vamos aprender como configurar um projeto que depende uma base de dados para organização do **Cluster**.
+CHegou a hora de começar a atrelar regras de negócio próprias ao Orleans. E a forma mais direta de se fazer isso é injetando dependências nos **Silos** para que os **Grains** tenhma acesso a outras classes.
 
 <div align="right">
 	
