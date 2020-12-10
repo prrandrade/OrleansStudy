@@ -52,7 +52,6 @@
 
                 .ConfigureServices(options =>
                 {
-                    options.TryAddScoped();
                     options.AddScoped<IUserRepository, UserRepository>();
                 })
 
