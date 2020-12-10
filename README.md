@@ -23,6 +23,7 @@
 - [Grain Timers][09-GrainTimers]
 - [Grain Reminders][10-GrainReminders]
 - [Silo Dependency Injection][11-SiloDependencyInjection]
+- [Client Dependency Injection][12-ClientDependencyInjection]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [02-PrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
@@ -35,3 +36,4 @@
 [09-GrainTimers]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/09-GrainTimers
 [10-GrainReminders]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/10-GrainReminders 
 [11-SiloDependencyInjection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/11-SiloDependencyInjection
+[12-CLientDependencyInjection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/12-ClientDependencyInjection
