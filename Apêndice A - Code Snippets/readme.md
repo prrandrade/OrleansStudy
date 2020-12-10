@@ -40,6 +40,11 @@
 - [Grains com Timers para tarefas repetidas](#grains-com-timers-para-tarefas-repetidas)
 - [Grains com Reminders para tarefas repetidas](#grains-com-reminders-para-tarefas-repetidas)
 
+### [Injeções de dependência no Orleans](#7-injeções-de-dependência-no-orleans)
+
+- [Injeção de dependência no Silo](#injeção-de-dependência-no-silo)
+- [Injeção de dependência no Client](#injeção-de-dependência-no-client)
+
 ## 1. Introdução
 
 Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem - não haverá explicações sobre o funcionamento dos códigos aqui.
