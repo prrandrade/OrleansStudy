@@ -5,7 +5,6 @@
     using Grains;
     using Interfaces.Repositories;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.DependencyInjection.Extensions;
     using Microsoft.Extensions.Logging;
     using Orleans;
     using Orleans.Configuration;
