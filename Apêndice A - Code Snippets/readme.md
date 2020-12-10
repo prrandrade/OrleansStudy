@@ -157,3 +157,9 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 #### [Grains com Timers para tarefas repetidas](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/12%20-%20Grains%20com%20Timers%20para%20tarefas%20repetidas)
 
 #### [Grains com Reminders para tarefas repetidas](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/13%20-%20Grains%20com%20Reminders%20para%20tarefas%20repetidas)
+
+## 7. Injeções de dependência no Orleans
+
+#### [Injeção de dependência no Silo](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/14%20-%20Inje%C3%A7%C3%A3o%20de%20depend%C3%AAncia%20no%20Silo)
+
+#### [Injeção de dependência no Client](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/15%20-%20Inje%C3%A7%C3%A3o%20de%20depend%C3%AAncia%20no%20Client)
