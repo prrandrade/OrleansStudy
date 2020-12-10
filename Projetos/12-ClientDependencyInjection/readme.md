@@ -120,14 +120,17 @@ public class DateTimeGrain : Grain, IDateTimeGrain
 
 Não há nenhum mistério. Ao fazermos a chamada a `Action` correspondente recebemos a resposta de data e hora vinda do **Grain**, processado no **Silo**, claro.
 
-> chamada para https://localhost:5001/datetime?id=1
-> retorno: "2020-12-10T14:59:13.7452081-03:00"
+```
+chamada para https://localhost:5001/datetime?id=1
+retorno: "2020-12-10T14:59:13.7452081-03:00"
+```
 
 Enquanto isso, o **Grain** mostra no log a chave primária passada.
 
-> info: Grains.DateTimeGrain[0]
->       Grain called for 1
-
+```
+info: Grains.DateTimeGrain[0]
+      Grain called for 1
+```
 
 <div align="right">
 	
