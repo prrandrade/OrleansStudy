@@ -9,8 +9,13 @@ private static async Task<ISiloHost> StartSilo()
 
 		.ConfigureServices(options =>
 		{
+			// adição de escopo de dependência
 			options.AddScoped<ISomeInterface, SomeImplementation>();
+			
+			// adição transiente de dependência
 			options.AddTransient<IAnotherInteface, AnotherImplementation>();
+			
+			// adição singleton de dependência
 			options.AddSingleton<IOneMoreInterface, OneMoreImplementation>();
 		})		
 
