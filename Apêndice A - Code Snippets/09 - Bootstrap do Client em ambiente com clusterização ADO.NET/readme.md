@@ -35,7 +35,7 @@ internal class Program
 				options.ServiceId = "dev";
 			})
 
-            // clustering via banco de dados
+    			// clustering via banco de dados
 			.UseAdoNetClustering(options =>
 			{				
 				options.Invariant = "System.Data.SqlClient"; // System.Data.SqlClient ou MySql.Data.MySqlClient ou Npgsql ou Oracle.DataAccess.Client
