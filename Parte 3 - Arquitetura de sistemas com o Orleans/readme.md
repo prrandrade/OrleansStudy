@@ -55,7 +55,7 @@ E isso também faz sentido ao percebermos que o **Client** (e os **Silos**) não
 
 # 5. Projeto ClientDependencyInjection
 
-[No projeto ClientDependencyInjection](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/12-ClientDependencyInjection), criamos uma WebApi que uma o **Client** do Orleans como uma dependência que pode ser usada durante as chamadas. Note que lógicas de autenticação e autorização não ficariam a cargo do **Client** do Orleans, ficariam a cargo da WebApi.
+No [projeto ClientDependencyInjection](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/12-ClientDependencyInjection), criamos uma WebApi que uma o **Client** do Orleans como uma dependência que pode ser usada durante as chamadas. Note que lógicas de autenticação e autorização não ficariam a cargo do **Client** do Orleans, ficariam a cargo da WebApi.
 
 <div align="right">
 	
