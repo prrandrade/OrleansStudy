@@ -45,6 +45,10 @@
 - [Injeção de dependência no Silo](#injeção-de-dependência-no-silo)
 - [Injeção de dependência no Client](#injeção-de-dependência-no-client)
 
+### Manipulação e gerenciamento de Grains nos Silos
+
+- [Chamando Grains dentro de outros Grains](#chamando-grains-dentro-de-outros-grains)
+
 ## 1. Introdução
 
 Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola rápida para as situações repetitivas que o Orleans tem - não haverá explicações sobre o funcionamento dos códigos aqui.
@@ -168,3 +172,8 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 #### [Injeção de dependência no Silo](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/14%20-%20Inje%C3%A7%C3%A3o%20de%20depend%C3%AAncia%20no%20Silo)
 
 #### [Injeção de dependência no Client](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/15%20-%20Inje%C3%A7%C3%A3o%20de%20depend%C3%AAncia%20no%20Client)
+
+
+## 8. Manipulação e gerenciamento de Grains nos Silos
+
+#### [Chamando Grains dentro de outros Grains](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/16%20-%20Chamando%20Grains%20dentro%20de%20outros%20Grains)
