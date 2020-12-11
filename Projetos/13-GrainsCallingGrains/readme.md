@@ -4,7 +4,7 @@
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
 - [Pacotes que precisam ser instalados no Silo](#3-pacotes-que-precisam-ser-instalados-no-silo)
 - [Exemplo prático de Grain chamado diretamente no Silo](#4-exemplo-prático-de-grain-chamado-diretamente-no-silo)
-- [Client consumindo Grains sem saber](#5-client consumindo Grains sem saber)
+- [Client consumindo Grains sem saber](#5-client-consumindo-grains-sem-saber)
 - [Sumário](#6-sumário)
 
 # 1. Introdução
