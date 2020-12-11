@@ -5,6 +5,8 @@
 - [Projeto SiloDependencyInjection](#3-projeto-silodependencyinjection)
 - [Injeção de dependência no Client](#4-injeção-de-dependência-no-client)
 - [Projeto ClientDependencyInjection](#5-projeto-clientdependencyinjection)
+- [Grains chamando outros Grains](#6-grains-chamando-outros-grains)
+- [Projeto GrainsCallingGrains](#7-projeto-grainscallinggrains)
 
 # 1. Introdução
 
@@ -56,6 +58,26 @@ E isso também faz sentido ao percebermos que o **Client** (e os **Silos**) não
 # 5. Projeto ClientDependencyInjection
 
 No [projeto ClientDependencyInjection](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/12-ClientDependencyInjection), criamos uma WebApi que uma o **Client** do Orleans como uma dependência que pode ser usada durante as chamadas. Note que lógicas de autenticação e autorização não ficariam a cargo do **Client** do Orleans, ficariam a cargo da WebApi.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
+# 6. Grains chamando outros Grains
+
+Todos os exemplos usados até o presente momento partem do mesmíssimo princípio: o que de o **Client** precisa de um método e apenas um método do **Grain** e que este método é público. Mas e quando a lógica de negócio está espalhada em vários **Grains** (como aliás, deveria estar)? Podemos chamar assicronamente 'vários **Grains**, claro, mas se se precisamos chamá-los numa ordem específica? Ou quando não queremos que o cliente saiba desta ordem? A solução é fazer com que os **Grains** usem uns aos outros - o que totalmente possível!
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
+# 7. Projeto GrainsCallingGrains
+
+No [projeto GrainsCallingGrains](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/13-GrainsCallingGrains), vamos ver como os **Grains** podem chamar uns aos outros para distribuir ainda mais o processamento dos métodos - e sem o **Client** ficar sabendo disso!
 
 <div align="right">
 	
