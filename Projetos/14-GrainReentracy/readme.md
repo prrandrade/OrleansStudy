@@ -3,7 +3,7 @@
 - [Introdução](#1-introdução)
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
 - [Atributo Reentrant em grains](#3-atributo-reentrant-em-grains)
-- [Grains Reentrant em ação](#4-grains-reentrant-em-ação]
+- [Grains Reentrant em ação](#4-grains-reentrant-em-ação)
 - [Sumário](#5-sumário)
 
 # 1. Introdução
@@ -146,7 +146,6 @@ MADE IT!
 ```
 
 Isso não necessariamente acontece todas as vezes, mas o início da execução de um método não depende mais do término de outra execução - podemos ver uma chamada ao método `Do` foi feita antes da chamada anterior ter sido concluída.
-
 
 # 5. Sumário
 
