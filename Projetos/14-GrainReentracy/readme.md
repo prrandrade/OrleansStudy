@@ -95,7 +95,7 @@ public class ReentryGrain : Grain, IReentryGrain
 
 </div>
 
-#4. Grains Reentrant em ação
+# 4. Grains Reentrant em ação
 
 Podemos ver bem a diferença de comportamento dos **Grains** através do código feito no **Client** desde projeto. Basicamente estamos chamando dos métodos `Do` e `Make` 10 vezes em cada grain.
 
