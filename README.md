@@ -26,6 +26,7 @@
 - [Client Dependency Injection][12-ClientDependencyInjection]
 - [Grains calling Grains][13-GrainsCallingGrains]
 - [Grain Reentrancy][14-GrainReentrancy]
+- [Grain Methods Interleaving][15-GrainMethodsInterleaving]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [02-PrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
@@ -41,3 +42,4 @@
 [12-CLientDependencyInjection]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/12-ClientDependencyInjection
 [13-GrainsCallingGrains]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/13-GrainsCallingGrains
 [14-GrainReentrancy]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/14-GrainReentrancy
+[15-GrainMethodsInterleaving]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving
