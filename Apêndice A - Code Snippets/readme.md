@@ -48,6 +48,7 @@
 ### Manipulação e gerenciamento de Grains nos Silos
 
 - [Chamando Grains dentro de outros Grains](#chamando-grains-dentro-de-outros-grains)
+- [Marcando Grains como Reentrant](#marcando-grains-como-reentrant)
 
 ## 1. Introdução
 
@@ -177,3 +178,5 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 ## 8. Manipulação e gerenciamento de Grains nos Silos
 
 #### [Chamando Grains dentro de outros Grains](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/16%20-%20Chamando%20Grains%20dentro%20de%20outros%20Grains)
+#### [Marcando Grains como Reentrant](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/17%20-%20Marcando%20Grains%20como%20Reentrant)
+
