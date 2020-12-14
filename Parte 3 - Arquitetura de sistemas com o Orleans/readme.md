@@ -9,6 +9,8 @@
 - [Projeto GrainsCallingGrains](#7-projeto-grainscallinggrains)
 - [Quebrando o conceito de Virtual Actor dos Grains](#8-quebrando-o-conceito-de-virtual-actor-dos-grains)
 - [Projeto GrainReentrancy](#9-projeto-grainReentrancy)
+- [Quebrando o conceito de Virtual Actor dos Grains em métodos específicos](#10-quebrando-o-conceito-de-virtual-actor-dos-grains-em-métodos-específicos)
+- [Projeto GrainMethodsInterleaving](#11-projeto-grainmethodsinterleaving)
 
 # 1. Introdução
 
@@ -106,4 +108,12 @@ No [projeto GrainReentrancy](https://github.com/prrandrade/OrleansStudy/tree/mas
 [Voltar](#arquitetura-de-sistemas-com-o-orleans)
 
 </div>
+
+# 10. Quebrando o conceito de Virtual Actor dos Grains em métodos específicos
+
+O problema de se usar o atributo `GrainReentrancy` no **Grain** é que todos os métodos deixam de usar as vantagens do modelo de virtual Actor do Orleans, o que não necessatiamente queremos sempre. Se o problema está em métodos específicos, a resposta é outro atibuto, que vamos conhecer a seguir.
+
+# 11. Projeto GrainMethodsInterleaving
+
+No [projeto GrainMethodsInterleaving](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving), vemos como querar o conceito de virtual actor do Orleans apenas em métodos específicos de um **Grain**, mantendo todas as vantagens desse sistema no resto do **Grain**.
 
