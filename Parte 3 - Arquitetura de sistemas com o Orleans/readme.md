@@ -99,7 +99,7 @@ Já falamos anteriormente que uma das partes mais difíceis de sistemas distribu
 
 # 9. Projeto GrainReentrancy
 
-No [projeto GrainReentrancy](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/14-GrainReentracy) podemos ver como configurar **Grains** para que o início da execução de um método do mesmo **Grain** (mesma chave primária) não dependa do final da execução de outro método do mesmo **Grain**.
+No [projeto GrainReentrancy](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/14-GrainReentrancy) podemos ver como configurar **Grains** para que o início da execução de um método do mesmo **Grain** (mesma chave primária) não dependa do final da execução de outro método do mesmo **Grain**.
 
 <div align="right">
 	
