@@ -89,9 +89,21 @@ No [projeto GrainsCallingGrains](https://github.com/prrandrade/OrleansStudy/tree
 
 # 8. Quebrando o conceito de Virtual Actor dos Grains
 
-Já falamos anteriormente que uma das partes mais difíceis de sistemas distribuídos é fazer com que as requisições sejam distribuídas de forma serializada, fazendo com que certas chamadas sejam realizadas em ordem de chegada. E isso está embutido no Orleans, com o conceito de virtual actor, controlado na prática com as chaves primárias dos Grains. Mas e quando esta organização do Orleans acaba atralhando  a lógica de negócio? É possível 'passar por cima' de um Virtual Actor? Sim, e de diferentes maneiras!
+Já falamos anteriormente que uma das partes mais difíceis de sistemas distribuídos é fazer com que as requisições sejam distribuídas de forma serializada, fazendo com que certas chamadas sejam realizadas em ordem de chegada. E isso está embutido no Orleans, com o conceito de virtual actor, controlado na prática com as chaves primárias dos Grains. Mas e quando esta organização do Orleans acaba atrapalhando a lógica de negócio? É possível 'passar por cima' de um Virtual Actor? Sim, e de diferentes maneiras!
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
 
 # 9. Projeto GrainReentrancy
 
 No [projeto GrainReentrancy](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/14-GrainReentracy) podemos ver como configurar **Grains** para que o início da execução de um método do mesmo **Grain** (mesma chave primária) não dependa do final da execução de outro método do mesmo **Grain**.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
 
