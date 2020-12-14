@@ -113,7 +113,19 @@ No [projeto GrainReentrancy](https://github.com/prrandrade/OrleansStudy/tree/mas
 
 O problema de se usar o atributo `GrainReentrancy` no **Grain** é que todos os métodos deixam de usar as vantagens do modelo de virtual Actor do Orleans, o que não necessatiamente queremos sempre. Se o problema está em métodos específicos, a resposta é outro atibuto, que vamos conhecer a seguir.
 
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
 # 11. Projeto GrainMethodsInterleaving
 
 No [projeto GrainMethodsInterleaving](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving), vemos como querar o conceito de virtual actor do Orleans apenas em métodos específicos de um **Grain**, mantendo todas as vantagens desse sistema no resto do **Grain**.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
 
