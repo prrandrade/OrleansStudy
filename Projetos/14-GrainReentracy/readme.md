@@ -147,6 +147,12 @@ MADE IT!
 
 Isso não necessariamente acontece todas as vezes, mas o início da execução de um método não depende mais do término de outra execução - podemos ver uma chamada ao método `Do` foi feita antes da chamada anterior ter sido concluída.
 
+<div align="right">
+	
+[Voltar](#projeto-grainreentrancy)
+
+</div>
+
 # 5. Sumário
 
 - O atributo `Reentrant` permite que métodos do mesmo **Grain** possam ser chamados sem esperar chamadas anteriores.
