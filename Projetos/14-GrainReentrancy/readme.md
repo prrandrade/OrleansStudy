@@ -18,7 +18,7 @@ Vamos ver como é simples configurar um **Grain** para que seus métodos possam 
 
 # 2. Observação rápida sobre a base de dados
 
-Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
+Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker](https://www.docker.com). Use a linha de comando que eu separei no repositório [DockerShortcuts](https://github.com/prrandrade/DockerShortcuts).
 
 <div align="right">
 	
@@ -163,6 +163,3 @@ Isso não necessariamente acontece todas as vezes, mas o início da execução d
 [Voltar](#projeto-grainreentrancy)
 
 </div>
-
-[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
-[docker-site]: https://www.docker.com/
