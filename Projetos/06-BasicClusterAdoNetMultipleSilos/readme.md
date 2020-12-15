@@ -21,7 +21,7 @@ Vamos aprender como executar mais de um **Silo** na mesma máquina e ver como o 
 
 # 2. Observação rápida sobre a base de dados
 
-Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
+Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker](https://www.docker.com). Use a linha de comando que eu separei no repositório [DockerShortcuts](https://github.com/prrandrade/DockerShortcuts).
 
 <div align="right">
 	
@@ -230,6 +230,3 @@ friend.Ping().WaitWithThrow(TimeSpan.FromMilliseconds(5000));
 
 [readme-parte2]: https://github.com/prrandrade/OrleansStudy/tree/master/Parte%202%20-%20Computa%C3%A7%C3%A3o%20distribu%C3%ADda%20e%20persist%C3%AAncia%20com%20o%20Orleans
 [05-BasicClusterAdoNet]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
-[docker-site]: https://www.docker.com/
-[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
-
