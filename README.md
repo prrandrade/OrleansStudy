@@ -27,6 +27,7 @@
 - [Grains calling Grains][13-GrainsCallingGrains]
 - [Grain Reentrancy][14-GrainReentrancy]
 - [Grain Methods Interleaving][15-GrainMethodsInterleaving]
+- [Grain Service][16-GrainService]
 
 [01-HelloWorld]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/01-HelloWorld
 [02-PrimaryKeys]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/02-PrimaryKeys
@@ -43,3 +44,4 @@
 [13-GrainsCallingGrains]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/13-GrainsCallingGrains
 [14-GrainReentrancy]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/14-GrainReentrancy
 [15-GrainMethodsInterleaving]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving
+[16-GrainService]: https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/16-GrainService
