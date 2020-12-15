@@ -2,9 +2,9 @@
 
 - [Introdução](#1-introdução)
 - [Observação rápida sobre a base de dados](#2-observação-rápida-sobre-a-base-de-dados)
-- [Preparando um GrainService](#3-criando-um-grainservice)
+- [Criando um GrainService](#3-criando-um-grainservice)
 - [Consumindo um GrainService em outros Grains](#4-consumindo-um-grainservice-em-outros-grains)
-- [Quem precisa de Client?](#5-quem-precisa-de-client?)
+- [Quem precisa de Client?](#5-quem-precisa-de-client)
 - [Sumário](#6-sumário)
 
 # 1. Introdução
@@ -27,7 +27,7 @@ Neste exemplo, estou usando uma base de dados local do SQL Server, executada via
 
 </div>
 
-# 3. Preparando seu projeto para GrainServices
+# 3. Criando um GrainService
 
 O projeto que terá as implementações do tipo `GrainService` precisa obrigatoriamente do pacote nuget **Microsoft.Orleans.Orleans** - pode um projeto separado, pode ser o mesmo projeto dos **Grains** normais.
 
