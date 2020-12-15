@@ -12,6 +12,7 @@
 - [Quebrando o conceito de Virtual Actor dos Grains em métodos específicos](#10-quebrando-o-conceito-de-virtual-actor-dos-grains-em-métodos-específicos)
 - [Projeto GrainMethodsInterleaving](#11-projeto-grainmethodsinterleaving)
 - [Sistemas com o Orleans e sem Clients](#12-sistemas-com-o-orleans-e-sem-clients)
+- [Projeto GrainService](#13-projeto-grainservice)
 
 # 1. Introdução
 
