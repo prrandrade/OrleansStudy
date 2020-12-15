@@ -19,7 +19,7 @@ Aqui vamos ver um exemplo básico de como podemos chamar Grains dentro de outros
 
 # 2. Observação rápida sobre a base de dados
 
-Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
+Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker](https://www.docker.com). Use a linha de comando que eu separei no repositório [DockerShortcuts](https://github.com/prrandrade/DockerShortcuts).
 
 <div align="right">
 	
