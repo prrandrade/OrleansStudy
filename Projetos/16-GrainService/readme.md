@@ -99,7 +99,8 @@ public override Task Init(IServiceProvider serviceProvider)
 	Task.Run(async () =>
 	{
 		_logger.LogInformation("Everything will start in 5 seconds...");
-        Thread.Sleep(5000);                _grainFactory.GetGrain<IExampleGrain>(0).CallGrainService();
+        Thread.Sleep(5000);
+		_grainFactory.GetGrain<IExampleGrain>(0).CallGrainService();
 	});
 
 	return base.Init(serviceProvider);
