@@ -11,6 +11,7 @@
 - [Projeto GrainReentrancy](#9-projeto-grainReentrancy)
 - [Quebrando o conceito de Virtual Actor dos Grains em métodos específicos](#10-quebrando-o-conceito-de-virtual-actor-dos-grains-em-métodos-específicos)
 - [Projeto GrainMethodsInterleaving](#11-projeto-grainmethodsinterleaving)
+- [Sistemas com o Orleans e sem Clients](#12-sistemas-com-o-orleans-e-sem-clients)
 
 # 1. Introdução
 
@@ -121,7 +122,7 @@ O problema de se usar o atributo `GrainReentrancy` no **Grain** é que todos os 
 
 # 11. Projeto GrainMethodsInterleaving
 
-No [projeto GrainMethodsInterleaving](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving), vemos como querar o conceito de virtual actor do Orleans apenas em métodos específicos de um **Grain**, mantendo todas as vantagens desse sistema no resto do **Grain**.
+No [projeto GrainMethodsInterleaving](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/15-GrainMethodsInterleaving), vemos como quebrar o conceito de virtual actor do Orleans apenas em métodos específicos de um **Grain**, mantendo todas as vantagens desse sistema no resto do **Grain**.
 
 <div align="right">
 	
@@ -129,3 +130,22 @@ No [projeto GrainMethodsInterleaving](https://github.com/prrandrade/OrleansStudy
 
 </div>
 
+# 12. Sistemas com o Orleans e sem Clients
+
+Em absolutamente todos os exemplos que vimos e fizemos até agora, a parte servidor do Orleans - ou seja, **Grains** e **Silos** precisaram ser provocados pelos **Clients** para começar o processamento. Só que existe um tipo especial de **Grain** que é iniciado com o **Silo**, aceita outros serviços via injeção de dependência e consegue lidar com os **Grains** normais - o **GrainService**.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
+# 13. Projeto GrainService
+
+No [projeto GrainService](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/16-GrainService), temos um exemplo claro de sistema com **Silo**, **Grain** e **GrainService** que não precisa de **Client** (ou seja, não precisa de estímulo externo) para começar um processamento de exemplo.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
