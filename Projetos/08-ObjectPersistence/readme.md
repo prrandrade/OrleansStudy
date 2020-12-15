@@ -20,7 +20,7 @@ Aqui vamos entender como funciona a persistência de objetos do Orleans usando u
 
 # 2. Observação rápida sobre a base de dados
 
-Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker][docker-site]. Use a linha de comando que eu separei no repositório [DockerShortcuts][docker-shortcuts].
+Neste exemplo, estou usando uma base de dados local do SQL Server, executada via um [container do Docker](https://www.docker.com). Use a linha de comando que eu separei no repositório [DockerShortcuts](https://github.com/prrandrade/DockerShortcuts).
 
 <div align="right">
 	
@@ -260,7 +260,3 @@ Console.WriteLine($"Conversation with Primary Key 1 has {resultOtherConversation
 [json.net]: https://www.newtonsoft.com/json
 [json.net-serializersettings]: https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm
 [05-BasicClusterAdoNet]: http://github.com/prrandrade/OrleansStudy/tree/master/Projetos/05-BasicClusterAdoNet
-[docker-site]: https://www.docker.com/
-[docker-shortcuts]: https://github.com/prrandrade/DockerShortcuts
-
-
