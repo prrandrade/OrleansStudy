@@ -119,6 +119,12 @@ Agora para que o **GrainService** funcione de fato, precisamos registrar a depen
 	
 ```
 
+<div align="right">
+	
+[Voltar](#projeto-grainservice)
+
+</div>
+
 # 4. Consumindo um GrainService em outros Grains
 
 Veja, a construção feita até aqui funciona muito bem para que o **GrainService** consuma outros **Grains**. Mas o contrário não é válido! Você não pode acessar um **GrainService** através do **Grain**, uma ponte é necessária: o **GrainServiceClient**. Todo **GrainServiceClient** também se divide em interface e implementação. A interface precisa implementar a mesma interface do **GrainService** correspondente e também a interface `IGrainServiceClient<T>`, onde `T` é a mesma interface do **GrainService**:
