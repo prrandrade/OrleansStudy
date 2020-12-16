@@ -20,9 +20,6 @@
                 Console.WriteLine("\n\n Press Enter to terminate...\n\n");
                 Console.ReadLine();
                 await host.StopAsync();
-                await host.StartAsync();
-                Console.WriteLine("\n\n Press Enter to terminate...\n\n");
-                Console.ReadLine();
                 return 0;
             }
             catch (Exception ex)
