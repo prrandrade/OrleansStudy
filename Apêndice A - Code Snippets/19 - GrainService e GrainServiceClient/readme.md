@@ -1,4 +1,4 @@
-# Marcando métodos de Grains como AlwaysInterleave
+# GrainService e GrainServiceClient
 
 ```csharp
 // interface de um GrainService implementa IGrainService
