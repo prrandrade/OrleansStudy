@@ -50,7 +50,7 @@
 - [Chamando Grains dentro de outros Grains](#chamando-grains-dentro-de-outros-grains)
 - [Marcando Grains como Reentrant](#marcando-grains-como-reentrant)
 - [Marcando métodos de Grains como AlwaysInterleave](#marcando-métodos-de-grains-como-awalysinterleave)
-- [GrainService e GrainServiceClient][#grainService-e-grainserviceclient]
+- [GrainService e GrainServiceClient](#grainservice-e-grainserviceclient)
 
 ## 1. Introdução
 
@@ -176,11 +176,9 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 
 #### [Injeção de dependência no Client](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/15%20-%20Inje%C3%A7%C3%A3o%20de%20depend%C3%AAncia%20no%20Client)
 
-
 ## 8. Manipulação e gerenciamento de Grains nos Silos
 
 #### [Chamando Grains dentro de outros Grains](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/16%20-%20Chamando%20Grains%20dentro%20de%20outros%20Grains)
 #### [Marcando Grains como Reentrant](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/17%20-%20Marcando%20Grains%20como%20Reentrant)
 #### [Marcando métodos de Grains como AlwaysInterleave](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/18%20-%20Marcando%20m%C3%A9todos%20de%20Grains%20como%20AlwaysInterleave)
 #### [GrainService e GrainServiceClient](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/19%20-%20GrainService%20e%20GrainServiceClient)
-
