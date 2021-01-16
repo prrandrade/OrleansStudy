@@ -45,7 +45,7 @@
 - [Injeção de dependência no Silo](#injeção-de-dependência-no-silo)
 - [Injeção de dependência no Client](#injeção-de-dependência-no-client)
 
-### Manipulação e gerenciamento de Grains nos Silos
+### [Manipulação e gerenciamento de Grains nos Silos](#8-manipulação-e-gerenciamento-de-grains-nos-silos)
 
 - [Chamando Grains dentro de outros Grains](#chamando-grains-dentro-de-outros-grains)
 - [Marcando Grains como Reentrant](#marcando-grains-como-reentrant)
