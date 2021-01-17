@@ -31,7 +31,7 @@ Neste exemplo, estou usando uma base de dados local do SQL Server, executada via
 
 # 3. Quando usar Reminders
 
-Basicamente falando, **Timers** e **Reminders ** têm o mesmo objetivo: a execução de tarefas agendadas dentro de um **Grain**. mas há uma diferença básica entre eles. **Reminders** continuam sendo executados mesmo quando o **Grain** não está ativado. Isso significa que, de alguma forma, o Orleans precisa guardar as informações dos Reminders para que a execução seja feita (claro, partindo do pressuposto que pelo menos um **Silo** esteja funcional).
+Basicamente falando, **Timers** e **Reminders** têm o mesmo objetivo: a execução de tarefas agendadas dentro de um **Grain**. mas há uma diferença básica entre eles. **Reminders** continuam sendo executados mesmo quando o **Grain** não está ativado. Isso significa que, de alguma forma, o Orleans precisa guardar as informações dos Reminders para que a execução seja feita (claro, partindo do pressuposto que pelo menos um **Silo** esteja funcional).
 
 <div align="right">
 	
