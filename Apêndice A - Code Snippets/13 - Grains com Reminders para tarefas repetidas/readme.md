@@ -32,7 +32,7 @@ public class ExampleGrain : Grain, IExampleGrain
 
 	public async Task DeactivateReminder()
 	{
-	// obtemos a referência ao reminder pelo nome para desativá-lo
+		// obtemos a referência ao reminder pelo nome para desativá-lo
 		var reminder = await GetReminder("reminder1");
 		if (reminder != null)
 			await UnregisterReminder(reminder);
