@@ -6,7 +6,5 @@
     public interface IHelloGrain : IGrainWithIntegerKey
     {
         Task Ping();
-
-        Task<int> Ping2();
     }
 }
