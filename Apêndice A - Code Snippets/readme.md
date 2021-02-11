@@ -182,3 +182,4 @@ Direto ao ponto, aqui vamos adicionar trechos de código numa espécie de cola r
 #### [Marcando Grains como Reentrant](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/17%20-%20Marcando%20Grains%20como%20Reentrant)
 #### [Marcando métodos de Grains como AlwaysInterleave](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/18%20-%20Marcando%20m%C3%A9todos%20de%20Grains%20como%20AlwaysInterleave)
 #### [GrainService e GrainServiceClient](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/19%20-%20GrainService%20e%20GrainServiceClient)
+#### [StatelessGrain](https://github.com/prrandrade/OrleansStudy/tree/master/Ap%C3%AAndice%20A%20-%20Code%20Snippets/20%20-%20StatelessGrain)
