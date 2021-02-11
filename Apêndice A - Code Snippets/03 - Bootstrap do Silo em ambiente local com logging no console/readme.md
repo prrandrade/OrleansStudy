@@ -24,7 +24,7 @@ internal class Program
 	{
 		var builder = new SiloHostBuilder()
 			.UseLocalhostClustering()
-			.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(**SOME GRAIN**).Assembly).WithReferences());
+			.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(**SOME GRAIN**).Assembly).WithReferences())
 			.ConfigureLogging(logging => logging.AddConsole());
 
 		var host = builder.Build();
