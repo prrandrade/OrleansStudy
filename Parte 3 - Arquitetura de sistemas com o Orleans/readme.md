@@ -13,6 +13,8 @@
 - [Projeto GrainMethodsInterleaving](#11-projeto-grainmethodsinterleaving)
 - [Sistemas com o Orleans e sem Clients](#12-sistemas-com-o-orleans-e-sem-clients)
 - [Projeto GrainService](#13-projeto-grainservice)
+- [Stateless Grains](#14-stateless-grains)
+- [Projeto StatelessGrain](#15-projeto-statelessgrain)
 
 # 1. Introdução
 
@@ -144,6 +146,26 @@ Em absolutamente todos os exemplos que vimos e fizemos até agora, a parte servi
 # 13. Projeto GrainService
 
 No [projeto GrainService](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/16-GrainService), temos um exemplo claro de sistema com **Silo**, **Grain** e **GrainService** que não precisa de **Client** (ou seja, não precisa de estímulo externo) para começar um processamento de exemplo.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
+# 14. Stateless Grains
+
+Já sabemos que apenas uma ativação de um **Grain** pode ser feita usando a mesma chave primária, em todos os **Silos** (este é um dos motivos pelos quais eles se comunicam entre si). Mas existe um tipo especial de **Grain** o qual pode ser ativado mais de uma vez em diferentes **Silos** - e mais de uma vez no mesmo **Silo**. Estes são os **Stateless Grains** (sem estado porque não há o controle remoto de estado do **Grain** entre **Silos**). O engraçado é que a programação em si de um **Stateless Grain** é exatamente igual a de um **Grain** normal, com a exceção de um atributo. É isso que veremos a seguir.
+
+<div align="right">
+	
+[Voltar](#arquitetura-de-sistemas-com-o-orleans)
+
+</div>
+
+# 15. Projeto StatelessGrain
+
+No [projeto StatelessGrain](https://github.com/prrandrade/OrleansStudy/tree/master/Projetos/17-StatelessGrain) vamos ver o comportamento de um **Stateless Grain** e como suas características únicas podem ser usadas para otimizar certos processos distribuídos.
 
 <div align="right">
 	
